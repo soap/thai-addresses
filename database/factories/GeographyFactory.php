@@ -17,5 +17,4 @@ class GeographyFactory extends Factory
             "name_th" => $this->faker->randomKey(),
         ];
     }
-
 }

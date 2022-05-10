@@ -2,7 +2,6 @@
 
 namespace Soap\ThaiProvinces;
 
-
 class ThaiProvinces
 {
     public function getProvinceTableName()

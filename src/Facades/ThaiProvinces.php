@@ -11,7 +11,7 @@ class ThaiProvinces extends Facade
 {
     /**
      * Alias of dynamic class, need to be registered in service provider
-     * @return string 
+     * @return string
      */
     protected static function getFacadeAccessor()
     {

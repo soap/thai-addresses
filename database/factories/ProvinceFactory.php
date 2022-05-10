@@ -19,5 +19,4 @@ class ProvinceFactory extends Factory
             ThaiProvinces::getGeographyIdName() => $this->faker->randomDigitNotZero(),
         ];
     }
-
 }

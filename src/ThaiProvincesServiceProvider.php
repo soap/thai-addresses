@@ -32,7 +32,7 @@ class ThaiProvincesServiceProvider extends PackageServiceProvider
 
     public function registeringPackage()
     {
-        $this->app->bind('thai-provinces', function($app) {
+        $this->app->bind('thai-provinces', function ($app) {
             return new ThaiProvinces();
         });
     }

@@ -8,7 +8,6 @@ use Soap\ThaiProvinces\ThaiProvincesServiceProvider;
 
 class TestCase extends Orchestra
 {
-    
     protected function setUp(): void
     {
         parent::setUp();
@@ -28,7 +27,7 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'sqlite');
-        config()->set('database.connections.sqlite',[
+        config()->set('database.connections.sqlite', [
             'driver' => 'sqlite',
             'database' => ':memory:',
             'prefix' => ''
@@ -47,8 +46,5 @@ class TestCase extends Orchestra
 
         $migration = include __DIR__.'/../database/migrations/create_thai_provinces_table.php';
         $migration->up();
-
-
-        
     }
 }

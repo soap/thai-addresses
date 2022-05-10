@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Soap\ThaiProvinces\Facades\ThaiProvinces;
 
-class Geography extends Model 
+class Geography extends Model
 {
     use HasFactory;
     
@@ -20,5 +20,5 @@ class Geography extends Model
         parent::__construct($attributes);
         
         $this->table = ThaiProvinces::getGeographyTableName();
-    }   
+    }
 }
