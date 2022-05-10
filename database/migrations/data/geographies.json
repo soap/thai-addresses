@@ -1,0 +1,8 @@
+[
+    {"id":1, "name_en":"North", "name_th":"ภาคเหนือ"},
+    {"id":2, "name_en":"Central", "name_th":"ภาคกลาง"},
+    {"id":3, "name_en":"North East", "name_th":"ภาคตะวันออกเฉียงเหนือ"},
+    {"id":4, "name_en":"West", "name_th":"ภาคตะวันตก"},
+    {"id":5, "name_en":"East", "name_th":"ภาคตะวันออก"},
+    {"id":6, "name_en":"South", "name_th":"ภาคใต้"}
+]
