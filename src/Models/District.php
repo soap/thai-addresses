@@ -10,8 +10,10 @@ class District extends Model
 {
     use HasFactory;
 
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+        
         $this->table = ThaiProvinces::getDistrictTableName();
     }
 }

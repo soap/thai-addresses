@@ -15,8 +15,10 @@ class Geography extends Model
         'name_eng'
     ];
 
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
-        $this->table = ThaiProvinces::getGeoGraphyTableName();
+        parent::__construct($attributes);
+        
+        $this->table = ThaiProvinces::getGeographyTableName();
     }   
 }

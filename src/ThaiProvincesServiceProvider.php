@@ -20,8 +20,14 @@ class ThaiProvincesServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             //->hasViews()
             
-            ->hasMigration('create_thai-provinces_table')
-            ->hasCommand(ThaiProvincesInstallCommand::class);
+            ->hasMigrations([
+                'create_thai_geographies_table',
+                'create_thai_provinces_table',
+                'create_thai_amphures_table'
+            ])
+            ->hasCommands([
+                ThaiProvincesInstallCommand::class
+            ]);
     }
 
     public function registeringPackage()

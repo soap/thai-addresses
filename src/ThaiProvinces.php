@@ -15,7 +15,7 @@ class ThaiProvinces
         return config('thai-provinces.district.table_name');
     }
 
-    public function getGeoGraphyTableName()
+    public function getGeographyTableName()
     {
         return config('thai-provinces.geography.table_name');
     }
@@ -25,7 +25,7 @@ class ThaiProvinces
         return config('thai-provinces.district.province_id');
     }
 
-    public function getGeograpyIdName()
+    public function getGeographyIdName()
     {
         return config('thai-provinces.province.geopgraphy_id');
     }

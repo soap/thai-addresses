@@ -13,10 +13,11 @@ class ProvinceFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->randomLetter(),
-            'name_th' => $this->faker->city,
-            'name_eng' => $this->faker->city,
+            "code" => $this->faker->randomLetter(),
+            "name_th" => $this->faker->city,
+            "name_en" => $this->faker->city,
             ThaiProvinces::getGeographyIdName() => $this->faker->randomDigitNotZero(),
         ];
     }
+
 }

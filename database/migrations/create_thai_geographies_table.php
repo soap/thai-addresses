@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
 
             // add fields
+    
             $table->string('name_en');
             $table->string('name_th');
             $table->timestamps();

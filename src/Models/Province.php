@@ -16,8 +16,15 @@ class Province extends Model
         'code'
     ];
 
-    public function __construct()
+    protected static function newFactory()
     {
+        return \Soap\ThaiProvinces\Database\Factories\ProvinceFactory::new();
+    }
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        
         $this->table = ThaiProvinces::getProvinceTableName();
     }   
 }

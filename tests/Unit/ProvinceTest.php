@@ -10,26 +10,24 @@ class ProvinceTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
     function a_province_has_name_th()
     {
         $province = Province::factory()->create([
-            'name_th' => 'กระบี่',
-            'name_eng' => 'Krabi',
-            'code' => '000',
+            "name_th" => "กระบี่",
+            "name_en" => "Krabi",
+            "code" => "000",
         ]);
         
-        $this->assertEquals('กระบี่', $province->name_th);
+        $this->assertEquals("กระบี่", $province->name_th);
     }
 
-    /** @test */
-    function a_province_has_name_eng()
+    function a_province_has_name_en()
     {
-        $province = Province::factory()->create([
-            'name_th' => 'กระบี่',
-            'name_eng' => 'Krabi',
-            'code' => '000',
+        $province = Province::factory()->make([
+            "name_th" => 'กระบี่',
+            "name_en" => 'Krabi',
+            "code" => '000',
         ]);
-        $this->assertEquals('Krabi', $province->name_eng);
+        $this->assertEquals('Krabi', $province->name_en);
     }
 }
