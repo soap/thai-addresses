@@ -3,8 +3,8 @@
 namespace Soap\ThaiProvinces\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Soap\ThaiProvinces\Tests\TestCase;
 use Soap\ThaiProvinces\Models\Province;
+use Soap\ThaiProvinces\Tests\TestCase;
 
 class ProvinceTest extends TestCase
 {
@@ -17,7 +17,7 @@ class ProvinceTest extends TestCase
             "name_en" => "Krabi",
             "code" => "000",
         ]);
-        
+
         $this->assertEquals("กระบี่", $province->name_th);
     }
 

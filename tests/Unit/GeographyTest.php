@@ -3,8 +3,8 @@
 namespace Soap\ThaiProvinces\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Soap\ThaiProvinces\Tests\TestCase;
 use Soap\ThaiProvinces\Models\Geography;
+use Soap\ThaiProvinces\Tests\TestCase;
 
 class GeographyTest extends TestCase
 {
@@ -15,9 +15,9 @@ class GeographyTest extends TestCase
     {
         $region = Geography::factory()->create([
                 "name_en" => "South",
-                "name_th" => "ภาคใต้"
+                "name_th" => "ภาคใต้",
             ]);
-            
+
         $this->assertEquals("ภาคใต้", $region->name_th);
     }
 
@@ -26,9 +26,9 @@ class GeographyTest extends TestCase
     {
         $region = Geography::factory()->create([
                     "name_en" => "North",
-                    "name_th" => "ภาคเหนือ"
+                    "name_th" => "ภาคเหนือ",
                 ]);
-                
+
         $this->assertEquals("North", $region->name_en);
     }
 }

@@ -9,16 +9,16 @@ use Soap\ThaiProvinces\Facades\ThaiProvinces;
 class Geography extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'name_th',
-        'name_eng'
+        'name_eng',
     ];
 
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        
+
         $this->table = ThaiProvinces::getGeographyTableName();
     }
 }

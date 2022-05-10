@@ -2,9 +2,9 @@
 
 namespace Soap\ThaiProvinces;
 
+use Soap\ThaiProvinces\Commands\ThaiProvincesInstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\ThaiProvinces\Commands\ThaiProvincesInstallCommand;
 
 class ThaiProvincesServiceProvider extends PackageServiceProvider
 {
@@ -19,14 +19,14 @@ class ThaiProvincesServiceProvider extends PackageServiceProvider
             ->name('thai-provinces')
             ->hasConfigFile()
             //->hasViews()
-            
+
             ->hasMigrations([
                 'create_thai_geographies_table',
                 'create_thai_provinces_table',
-                'create_thai_amphures_table'
+                'create_thai_amphures_table',
             ])
             ->hasCommands([
-                ThaiProvincesInstallCommand::class
+                ThaiProvincesInstallCommand::class,
             ]);
     }
 

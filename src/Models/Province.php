@@ -9,11 +9,11 @@ use Soap\ThaiProvinces\Facades\ThaiProvinces;
 class Province extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'name_th',
         'name_eng',
-        'code'
+        'code',
     ];
 
     protected static function newFactory()
@@ -24,7 +24,7 @@ class Province extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        
+
         $this->table = ThaiProvinces::getProvinceTableName();
     }
 }

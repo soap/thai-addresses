@@ -30,7 +30,7 @@ class TestCase extends Orchestra
         config()->set('database.connections.sqlite', [
             'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix' => ''
+            'prefix' => '',
         ]);
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
@@ -38,9 +38,9 @@ class TestCase extends Orchestra
             'host' => '127.0.0.1',
             'username' => 'root',
             'password' => '',
-            'prefix' => ''
+            'prefix' => '',
         ]);
-  
+
         $migration = include __DIR__.'/../database/migrations/create_thai_geographies_table.php';
         $migration->up();
 
