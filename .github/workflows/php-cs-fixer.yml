@@ -10,7 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GH_TOKEN }}
           ref: ${{ github.head_ref }}
 
       - name: Run PHP CS Fixer
