@@ -16,7 +16,6 @@ class Province extends Model
         'code',
     ];
 
-
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);

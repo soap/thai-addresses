@@ -25,7 +25,7 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
                 'create_thai_provinces_table',
                 'create_thai_districts_table',
                 'create_thai_subdistricts_table',
-                'create_addresses_table'
+                'create_addresses_table',
             ])
             ->hasCommands([
                 ThaiAddressesInstallCommand::class,
