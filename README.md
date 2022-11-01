@@ -17,40 +17,43 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require soap/thai-provinces
+composer require soap/thai-addresses
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="thai-provinces-migrations"
+php artisan vendor:publish --tag="thai-addresses-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="thai-provinces-config"
+php artisan vendor:publish --tag="thai-addresses-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+
 ];
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="thai-provinces-views"
+php artisan vendor:publish --tag="thai-addresses-views"
 ```
 
 ## Usage
 
 ```php
-$thaiProvinces = new Soap\ThaiProvinces();
-echo $thaiProvinces->echoPhrase('Hello, Soap!');
+$thaiAddresses = new Soap\ThaiAddresses();
+
+$thaiAddresses->getProvinces();
+
 ```
 
 ## Testing
