@@ -1,10 +1,10 @@
 <?php
 
-namespace Soap\ThaiProvinces\Tests\Unit;
+namespace Soap\ThaiAddresses\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Soap\ThaiProvinces\Models\Province;
-use Soap\ThaiProvinces\Tests\TestCase;
+use Soap\ThaiAddresses\Models\Province;
+use Soap\ThaiAddresses\Tests\TestCase;
 
 class ProvinceTest extends TestCase
 {

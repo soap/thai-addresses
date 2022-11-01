@@ -1,10 +1,10 @@
 <?php
 
-namespace Soap\ThaiProvinces\Tests;
+namespace Soap\ThaiAddresses\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Soap\ThaiProvinces\ThaiProvincesServiceProvider;
+use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Soap\\ThaiProvinces\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Soap\\ThaiAddresses\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            ThaiProvincesServiceProvider::class,
+            ThaiAddressesServiceProvider::class,
         ];
     }
 
@@ -32,6 +32,7 @@ class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
+        
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
             'database' => 'thai_provinces_demo',

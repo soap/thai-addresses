@@ -1,6 +1,6 @@
 <?php
 
-namespace Soap\ThaiProvinces\Models;
+namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

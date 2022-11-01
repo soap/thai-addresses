@@ -1,5 +1,5 @@
 <?php
 
-use Soap\ThaiProvinces\Tests\TestCase;
+use Soap\ThaiAddresses\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
