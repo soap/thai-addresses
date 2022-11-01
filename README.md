@@ -1,5 +1,5 @@
 
-# Thai addressable for Laravel application's models.
+# Thai addressable mdoels and provinces database for Laravel application.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/thai-provinces.svg?style=flat-square)](https://packagist.org/packages/soap/thai-provinces)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/thai-provinces/run-tests?label=tests)](https://github.com/soap/thai-provinces/actions?query=workflow%3Arun-tests+branch%3Amain)
