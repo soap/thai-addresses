@@ -1,12 +1,12 @@
 <?php
 
-namespace Soap\ThaiProvinces\Commands;
+namespace Soap\ThaiAddresses\Commands;
 
 use Illuminate\Console\Command;
 
-class ThaiProvincesInstallCommand extends Command
+class ThaiAddressesInstallCommand extends Command
 {
-    public $signature = 'thai-provinces:install';
+    public $signature = 'thai-addresses:install';
 
     public $description = 'Install thai provinces database';
 

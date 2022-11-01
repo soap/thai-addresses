@@ -1,5 +1,5 @@
 {
-    "name": "soap/thai-provinces",
+    "name": "soap/thai-addresses",
     "description": "Thai provinces database for Laravel application",
     "keywords": [
         "soap",
@@ -7,7 +7,8 @@
         "thai",
         "thailand",
         "prasit gebsaap",
-        "provinces"
+        "provinces",
+        "addresses"
     ],
     "homepage": "https://github.com/soap/thai-provinces",
     "license": "MIT",
@@ -21,7 +22,8 @@
     "require": {
         "php": "^8.0",
         "spatie/laravel-package-tools": "^1.9.2",
-        "illuminate/contracts": "^9.0"
+        "illuminate/contracts": "^9.0",
+        "illuminate/support": "^9.0"
     },
     "require-dev": {
         "nunomaduro/collision": "^6.0",
@@ -38,13 +40,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Soap\\ThaiProvinces\\": "src",
-            "Soap\\ThaiProvinces\\Database\\Factories\\": "database/factories"
+            "Soap\\ThaiAddresses\\": "src",
+            "Soap\\ThaiAddresses\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Soap\\ThaiProvinces\\Tests\\": "tests"
+            "Soap\\ThaiAddresses\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Soap\\ThaiProvinces\\ThaiProvincesServiceProvider"
+                "Soap\\ThaiAddresses\\ThaiAddressesServiceProvider"
             ],
             "aliases": {
-                "ThaiProvinces": "Soap\\ThaiProvinces\\Facades\\ThaiProvinces"
+                "ThaiProvinces": "Soap\\ThaiAddresses\\Facades\\ThaiAddresses"
             }
         }
     },

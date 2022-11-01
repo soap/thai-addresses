@@ -1,12 +1,12 @@
 <?php
 
-namespace Soap\ThaiProvinces;
+namespace Soap\ThaiAddresses;
 
-use Soap\ThaiProvinces\Commands\ThaiProvincesInstallCommand;
+use Soap\ThaiAddresses\Commands\ThaiAddressesInstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ThaiProvincesServiceProvider extends PackageServiceProvider
+class ThaiAddressesServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,24 +16,26 @@ class ThaiProvincesServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('thai-provinces')
+            ->name('thai-addresses')
             ->hasConfigFile()
             //->hasViews()
 
             ->hasMigrations([
                 'create_thai_geographies_table',
                 'create_thai_provinces_table',
-                'create_thai_amphures_table',
+                'create_thai_districts_table',
+                'create_thai_subdistricts_table',
+                'create_addresses_table'
             ])
             ->hasCommands([
-                ThaiProvincesInstallCommand::class,
+                ThaiAddressesInstallCommand::class,
             ]);
     }
 
     public function registeringPackage()
     {
-        $this->app->bind('thai-provinces', function ($app) {
-            return new ThaiProvinces();
+        $this->app->bind('thai-addresses', function ($app) {
+            return new ThaiAddresses();
         });
     }
 }

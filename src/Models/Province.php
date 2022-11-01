@@ -4,7 +4,7 @@ namespace Soap\ThaiProvinces\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Soap\ThaiProvinces\Facades\ThaiProvinces;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Province extends Model
 {
@@ -16,15 +16,11 @@ class Province extends Model
         'code',
     ];
 
-    protected static function newFactory()
-    {
-        return \Soap\ThaiProvinces\Database\Factories\ProvinceFactory::new();
-    }
 
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
 
-        $this->table = ThaiProvinces::getProvinceTableName();
+        $this->table = ThaiAddresses::getProvinceTableName();
     }
 }

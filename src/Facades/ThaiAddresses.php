@@ -1,13 +1,13 @@
 <?php
 
-namespace Soap\ThaiProvinces\Facades;
+namespace Soap\ThaiAddresses\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Soap\ThaiProvinces\ThaiProvinces
  */
-class ThaiProvinces extends Facade
+class ThaiAddresses extends Facade
 {
     /**
      * Alias of dynamic class, need to be registered in service provider
@@ -15,6 +15,6 @@ class ThaiProvinces extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'thai-provinces';
+        return 'thai-addresses';
     }
 }

@@ -7,14 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     public function up()
-    {
+    {      
         Schema::create($this->getTable(), function (Blueprint $table) {
             $table->id();
 
             // add fields
-    
-            $table->string('name_en');
+            $table->string('code');
             $table->string('name_th');
+            $table->string('name_en');
+            $table->foreignId($this->getForeignKey());
+
             $table->timestamps();
         });
     }
@@ -26,6 +28,11 @@ return new class extends Migration
 
     private function getTable()
     {
-        return config('thai-addresses.geography.table_name');
+        return config('thai-addresses.district.table_name');
+    }
+
+    private function getForeignKey()
+    {
+        return config('thai-addresses.province.foreign_key');
     }
 };

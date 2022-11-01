@@ -4,7 +4,7 @@ namespace Soap\ThaiProvinces\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Soap\ThaiProvinces\Facades\ThaiProvinces;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Geography extends Model
 {
@@ -19,6 +19,6 @@ class Geography extends Model
     {
         parent::__construct($attributes);
 
-        $this->table = ThaiProvinces::getGeographyTableName();
+        $this->table = ThaiAddresses::getGeographyTableName();
     }
 }

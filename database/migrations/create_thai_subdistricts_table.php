@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('code');
             $table->string('name_th');
             $table->string('name_en');
-            $table->foreignId($this->getKey());
+            $table->foreignId($this->getForeignKey());
 
             $table->timestamps();
         });
@@ -28,11 +28,11 @@ return new class extends Migration
 
     private function getTable()
     {
-        return config('thai-provinces.district.table_name');
+        return config('thai-addresses.subdistrict.table_name');
     }
 
-    private function getKey()
+    private function getForeignKey()
     {
-        return config('thai-provinces.district.province_id');
+        return config('thai-addresses.district.foreign_key');
     }
 };

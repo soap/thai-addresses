@@ -1,10 +1,10 @@
 <?php
 
-namespace Soap\ThaiProvinces\Models;
+namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Soap\ThaiProvinces\Facades\ThaiProvinces;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class District extends Model
 {
@@ -14,6 +14,6 @@ class District extends Model
     {
         parent::__construct($attributes);
 
-        $this->table = ThaiProvinces::getDistrictTableName();
+        $this->table = ThaiAddresses::getDistrictTableName();
     }
 }
