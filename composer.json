@@ -41,7 +41,8 @@
     "autoload": {
         "psr-4": {
             "Soap\\ThaiAddresses\\": "src",
-            "Soap\\ThaiAddresses\\Database\\Factories\\": "database/factories"
+            "Soap\\ThaiAddresses\\Database\\Factories\\": "database/factories",
+            "Soap\\ThaiAddresses\\Database\\Seeders\\": "database/seeders"
         }
     },
     "autoload-dev": {

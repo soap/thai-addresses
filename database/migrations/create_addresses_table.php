@@ -35,11 +35,11 @@ return new class extends Migration
 
     public function down()
     {
-
+        Schema::dropIfExists($this->getTable());
     }
 
     protected function getTable()
     {
-
+        return config('thai-addresses.address.table_name');
     }
 };

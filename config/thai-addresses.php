@@ -19,5 +19,9 @@ return [
 
     "subdistrict" => [
         "table_name" => "subdistricts",
+    ],
+
+    "address" => [
+        "table_name" => "addresses"
     ]
 ];
