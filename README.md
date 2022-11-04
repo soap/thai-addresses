@@ -1,5 +1,5 @@
 
-# Thai addressable mdoels and provinces database for Laravel application.
+# Thai addressable mdoels and provinces database for Laravel.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/thai-provinces.svg?style=flat-square)](https://packagist.org/packages/soap/thai-provinces)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/thai-provinces/run-tests?label=tests)](https://github.com/soap/thai-provinces/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -20,13 +20,6 @@ You can install the package via composer:
 composer require soap/thai-addresses
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="thai-addresses-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -37,8 +30,38 @@ This is the contents of the published config file:
 
 ```php
 return [
+    // model definition
+    "geography" => [
+        "table_name" => "thai_geographies",
+        "foreign_key" => "geography_id"
+    ],
 
+    "province" => [
+        "table_name" => "thai_provinces",
+        "foreign_key" => "province_id"
+    ],
+    
+    "district" => [
+        "table_name" => "districts",
+        "foreign_key" => "district_id"
+    ],
+
+    "subdistrict" => [
+        "table_name" => "subdistricts",
+    ],
+
+    "address" => [
+        "table_name" => "addresses"
+    ]
 ];
+```
+You can change table name for all models in the configuration file.
+
+Then you can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="thai-addresses-migrations"
+php artisan migrate
 ```
 
 Optionally, you can publish the views using

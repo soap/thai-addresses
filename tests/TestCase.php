@@ -32,7 +32,7 @@ class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
-        
+
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
             'database' => 'thai_provinces_demo',
