@@ -22,6 +22,7 @@ return [
     ],
 
     "address" => [
-        "table_name" => "addresses"
+        "table_name" => "addresses",
+        "model" => \Soap\ThaiAddresses\Models\Address::class
     ]
 ];
