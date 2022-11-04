@@ -22,8 +22,8 @@ class Address extends Model
         'street',
         'postal_code',
         'latitude', 'longitude',
-        'is_primary', 'is_billing', 'is_shipping'
-        
+        'is_primary', 'is_billing', 'is_shipping',
+
     ];
 
         /**

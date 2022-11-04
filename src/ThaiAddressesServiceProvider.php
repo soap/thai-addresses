@@ -3,9 +3,9 @@
 namespace Soap\ThaiAddresses;
 
 use Soap\ThaiAddresses\Commands\ThaiAddressesDbSeedCommand;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
 class ThaiAddressesServiceProvider extends PackageServiceProvider
 {
@@ -31,7 +31,7 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
             ])
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                ->startWith(function(InstallCommand $command) {
+                ->startWith(function (InstallCommand $command) {
                     $command->info("Start copy config, migration, migrate and database seeding");
                 })
                 ->publishConfigFile()
@@ -50,6 +50,5 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
 
     public function bootingPackage()
     {
-
     }
 }

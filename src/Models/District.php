@@ -13,7 +13,7 @@ class District extends Model
     protected $fillable = [
         'name_th',
         'name_en',
-        'code'
+        'code',
     ];
 
     public function __construct(array $attributes = [])
