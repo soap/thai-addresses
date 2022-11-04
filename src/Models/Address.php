@@ -2,8 +2,8 @@
 
 namespace Soap\ThaiAddresses\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Address extends Model
@@ -18,8 +18,8 @@ class Address extends Model
         'street',
         'postal_code',
         'latitude', 'longitude',
-        'is_primary', 'is_billing', 'is_shipping'
-        
+        'is_primary', 'is_billing', 'is_shipping',
+
     ];
 
     public function __construct(array $attributes = [])

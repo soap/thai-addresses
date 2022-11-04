@@ -14,25 +14,25 @@ class ThaiAddressesDbSeedCommand extends Command
     {
         $this->info('Seeding geography database ...');
         $this->call('db:seed', [
-            '--class'=> 'Soap\ThaiAddresses\Database\Seeders\GeographySeeder'
+            '--class' => 'Soap\ThaiAddresses\Database\Seeders\GeographySeeder',
         ]);
-        
+
         $this->info('Seeding province database ...');
         $this->call('db:seed', [
-            '--class'=> 'Soap\ThaiAddresses\Database\Seeders\ProvinceSeeder'
+            '--class' => 'Soap\ThaiAddresses\Database\Seeders\ProvinceSeeder',
         ]);
 
         $this->info('Seeding district database ...');
         $this->call('db:seed', [
-            '--class'=> 'Soap\ThaiAddresses\Database\Seeders\DistrictSeeder'
+            '--class' => 'Soap\ThaiAddresses\Database\Seeders\DistrictSeeder',
         ]);
 
-        
+
         $this->info('Seeding subdistrict database ...');
         $this->call('db:seed', [
-            '--class'=> 'Soap\ThaiAddresses\Database\Seeders\SubdistrictSeeder'
+            '--class' => 'Soap\ThaiAddresses\Database\Seeders\SubdistrictSeeder',
         ]);
-        
+
 
         $this->comment('All done');
 

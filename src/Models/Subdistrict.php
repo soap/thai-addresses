@@ -13,8 +13,9 @@ class Subdistrict extends Model
     protected $fillable = [
         'zip_code',
         'name_th',
-        'name_en'
+        'name_en',
     ];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
