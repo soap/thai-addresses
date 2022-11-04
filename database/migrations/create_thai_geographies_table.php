@@ -3,12 +3,13 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 return new class extends Migration
 {
     public function up()
     {
-        Schema::create($this->getTable(), function (Blueprint $table) {
+        Schema::create(ThaiAddresses::getGeographyTableName(), function (Blueprint $table) {
             $table->id();
 
             // add fields
@@ -21,11 +22,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists($this->getTable());
+        Schema::dropIfExists(ThaiAddresses::getGeographyTableName());
     }
 
-    private function getTable()
-    {
-        return config('thai-addresses.geography.table_name');
-    }
 };

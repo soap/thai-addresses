@@ -3,22 +3,22 @@
 return [
     // model definition
     "geography" => [
-        "table_name" => "thai_geographies",
+        "table_name" => "thai-geographies",
         "foreign_key" => "geography_id"
     ],
 
     "province" => [
-        "table_name" => "thai_provinces",
+        "table_name" => "thai-provinces",
         "foreign_key" => "province_id"
     ],
     
     "district" => [
-        "table_name" => "districts",
+        "table_name" => "thai-districts",
         "foreign_key" => "district_id"
     ],
 
     "subdistrict" => [
-        "table_name" => "subdistricts",
+        "table_name" => "thai-subdistricts",
     ],
 
     "address" => [

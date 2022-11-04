@@ -3,12 +3,13 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 return new class extends Migration
 {
     public function up()
     {
-        Schema::create($this->getTable(), function (Blueprint $table) {
+        Schema::create(ThaiAddresses::getAddressTableName(), function (Blueprint $table) {
             // Columns
             $table->id('id');
             $table->morphs('addressable');
@@ -35,11 +36,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists($this->getTable());
+        Schema::dropIfExists(ThaiAddresses::getAddressTableName());
     }
 
-    protected function getTable()
-    {
-        return config('thai-addresses.address.table_name');
-    }
 };

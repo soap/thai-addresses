@@ -3,19 +3,20 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 return new class extends Migration
 {
     public function up()
     {      
-        Schema::create($this->getTable(), function (Blueprint $table) {
+        Schema::create(ThaiAddresses::getSubdistrictTableName(), function (Blueprint $table) {
             $table->id();
 
             // add fields
-            $table->string('code');
+            $table->string('zip_code');
             $table->string('name_th');
             $table->string('name_en');
-            $table->foreignId($this->getForeignKey());
+            $table->foreignId(ThaiAddresses::getDistrictForeignKeyName());
 
             $table->timestamps();
         });
@@ -23,16 +24,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists($this->getTable());
+        Schema::dropIfExists(ThaiAddresses::getSubdistrictTableName());
     }
 
-    private function getTable()
-    {
-        return config('thai-addresses.subdistrict.table_name');
-    }
-
-    private function getForeignKey()
-    {
-        return config('thai-addresses.district.foreign_key');
-    }
 };
