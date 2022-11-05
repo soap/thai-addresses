@@ -2,17 +2,15 @@
 
 namespace Soap\ThaiAddresses\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Geography extends Model
 {
-    use HasFactory;
 
     protected $fillable = [
         'name_th',
-        'name_eng',
+        'name_en',
     ];
 
     public function __construct(array $attributes = [])

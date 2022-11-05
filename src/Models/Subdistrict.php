@@ -22,4 +22,9 @@ class Subdistrict extends Model
 
         $this->table = ThaiAddresses::getSubdistrictTableName();
     }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
 }

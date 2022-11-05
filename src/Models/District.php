@@ -2,14 +2,12 @@
 
 namespace Soap\ThaiAddresses\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
+use Soap\ThaiAddresses\Models\Province;
 
 class District extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'name_th',
         'name_en',
@@ -21,5 +19,10 @@ class District extends Model
         parent::__construct($attributes);
 
         $this->table = ThaiAddresses::getDistrictTableName();
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
     }
 }
