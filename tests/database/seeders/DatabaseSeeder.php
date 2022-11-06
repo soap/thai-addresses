@@ -4,7 +4,7 @@ namespace Soap\ThaiAddresses\Tests\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder 
+class DatabaseSeeder extends Seeder
 {
     /**
     * Run the database seeders.
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             GeographySeeder::class,
             ProvinceSeeder::class,
             DistrictSeeder::class,
-            SubdistrictSeeder::class
+            SubdistrictSeeder::class,
         ]);
     }
-} 
+}
