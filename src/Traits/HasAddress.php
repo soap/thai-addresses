@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Soap\ThaiAddresses\Traits;
 
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Collection;
 
 trait HasAddress
 {
@@ -67,6 +67,5 @@ trait HasAddress
     {
         // @TODO: this method needs to be refactored!
         return $this->addresses()->within($distance, $unit, $latitude, $longitude)->get();
-
     }
 }

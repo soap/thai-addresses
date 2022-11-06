@@ -4,14 +4,14 @@ namespace Soap\ThaiAddresses\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Soap\ThaiAddresses\Tests\Database\Seeders\DistrictSeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\GeographySeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\ProvinceSeeder;
-use Soap\ThaiAddresses\Tests\Database\Seeders\DistrictSeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\SubdistrictSeeder;
 use Soap\ThaiAddresses\Tests\Models\User;
 use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
-class TestCase extends Orchestra 
+class TestCase extends Orchestra
 {
     use SeedDatabase;
 
@@ -36,11 +36,11 @@ class TestCase extends Orchestra
             GeographySeeder::class,
             ProvinceSeeder::class,
             DistrictSeeder::class,
-            SubdistrictSeeder::class
+            SubdistrictSeeder::class,
         ];
-        
+
         $this->seedDatabase();
-        
+
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Soap\\ThaiAddresses\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
@@ -74,6 +74,5 @@ class TestCase extends Orchestra
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
         ]);
-
     }
 }

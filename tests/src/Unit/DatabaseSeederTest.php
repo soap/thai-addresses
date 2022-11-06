@@ -2,16 +2,14 @@
 
 namespace Soap\ThaiAddresses\Tests\Unit;
 
-
+use Soap\ThaiAddresses\Models\District;
 use Soap\ThaiAddresses\Models\Geography;
 use Soap\ThaiAddresses\Models\Province;
-use Soap\ThaiAddresses\Models\District;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Soap\ThaiAddresses\Tests\TestCase;
 
 class DatabaseSeederTest extends TestCase
 {
-
     /** @test */
     public function geography_records_exists()
     {
@@ -22,8 +20,8 @@ class DatabaseSeederTest extends TestCase
     /** @test */
     public function province_records_existsh()
     {
-       $provinces = Province::all();
-       $this->assertCount(77, $provinces, '77 provinces exists'); 
+        $provinces = Province::all();
+        $this->assertCount(77, $provinces, '77 provinces exists');
     }
 
     /** @test */

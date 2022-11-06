@@ -9,13 +9,14 @@ use Soap\ThaiAddresses\Traits\HasAddress;
 
 class User extends Authenticatable
 {
-    use HasFactory, HasAddress;
+    use HasFactory;
+    use HasAddress;
 
     protected $guarded = [];
 
     protected $fillable = [
         'name',
-        'email'
+        'email',
     ];
 
     protected $hidden = [
@@ -27,6 +28,4 @@ class User extends Authenticatable
     {
         return UserFactory::new();
     }
-
-    
 }
