@@ -27,4 +27,9 @@ class Subdistrict extends Model
     {
         return $this->belongsTo(District::class);
     }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

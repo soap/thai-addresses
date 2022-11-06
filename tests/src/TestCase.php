@@ -8,6 +8,7 @@ use Soap\ThaiAddresses\Tests\Database\Seeders\GeographySeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\ProvinceSeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\DistrictSeeder;
 use Soap\ThaiAddresses\Tests\Database\Seeders\SubdistrictSeeder;
+use Soap\ThaiAddresses\Tests\Models\User;
 use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 class TestCase extends Orchestra 
@@ -19,6 +20,12 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->artisan('migrate:fresh', [
+            '--force' => true,
+            '--path' => __DIR__ . '/../../database/migrations',
+            '--realpath' => true,
+        ]);
+
+        $this->artisan('migrate', [
             '--force' => true,
             '--path' => __DIR__ . '/../database/migrations',
             '--realpath' => true,
@@ -48,7 +55,9 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
+        config()->set('auth.providers.users.model', User::class);
         config()->set('database.default', 'mysql');
+
         config()->set('database.connections.sqlite', [
             'driver' => 'sqlite',
             'database' => ':memory:',
@@ -62,6 +71,8 @@ class TestCase extends Orchestra
             'username' => 'root',
             'password' => '',
             'prefix' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
         ]);
 
     }

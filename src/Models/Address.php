@@ -21,6 +21,7 @@ class Address extends Model
         'family_name',
         'organization',
         'street',
+        'subdistrict_id',
         'postal_code',
         'latitude', 'longitude',
         'is_primary', 'is_billing', 'is_shipping',

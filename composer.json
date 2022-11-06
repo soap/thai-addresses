@@ -47,7 +47,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Soap\\ThaiAddresses\\Tests\\": "tests"
+            "Soap\\ThaiAddresses\\Tests\\": "tests/src",
+            "Soap\\ThaiAddresses\\Tests\\Database\\": "tests/database"
         }
     },
     "scripts": {

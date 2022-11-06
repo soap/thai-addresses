@@ -19,4 +19,9 @@ class Geography extends Model
 
         $this->table = ThaiAddresses::getGeographyTableName();
     }
+
+    public function provinces()
+    {
+        return $this->hasMany(Province::class);
+    }
 }

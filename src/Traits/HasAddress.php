@@ -6,7 +6,6 @@ namespace Soap\ThaiAddresses\Traits;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Soap\ThaiAddresses\Models\Address;
 
 trait HasAddress
 {
@@ -51,7 +50,7 @@ trait HasAddress
      */
     public function addresses(): MorphMany
     {
-        return $this->morphMany(Address::class, 'addressable', 'addressable_type', 'addressable_id');
+        return $this->morphMany(config('thai-addresses.address.model'), 'addressable', 'addressable_type', 'addressable_id');
     }
 
     /**
