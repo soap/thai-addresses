@@ -15,7 +15,7 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->artisan('migrate:fresh', [
             '--force' => true,
             '--seed' => true,
@@ -29,7 +29,7 @@ class TestCase extends Orchestra
             '--path' => __DIR__ . '/../database/migrations',
             '--realpath' => true,
         ])->run();
-        
+
         /*
         SeedDatabaseState::$seeded = false;
         SeedDatabaseState::$seedOnce = true;
@@ -50,7 +50,7 @@ class TestCase extends Orchestra
             ThaiAddressesServiceProvider::class,
         ];
     }
-    
+
     public function getEnvironmentSetUp($app)
     {
         config()->set('auth.providers.users.model', User::class);
