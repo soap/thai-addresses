@@ -4,10 +4,7 @@ namespace Soap\ThaiAddresses\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Soap\ThaiAddresses\Tests\Database\Seeders\GeographySeeder;
-use Soap\ThaiAddresses\Tests\Database\Seeders\ProvinceSeeder;
-use Soap\ThaiAddresses\Tests\Database\Seeders\DistrictSeeder;
-use Soap\ThaiAddresses\Tests\Database\Seeders\SubdistrictSeeder;
+use Soap\ThaiAddresses\Tests\Database\Seeders\DatabaseSeeder;
 use Soap\ThaiAddresses\Tests\Models\User;
 use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
@@ -18,29 +15,30 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
+        
         $this->artisan('migrate:fresh', [
             '--force' => true,
+            '--seed' => true,
+            '--seeder' => DatabaseSeeder::class,
             '--path' => __DIR__ . '/../../database/migrations',
             '--realpath' => true,
-        ]);
+        ])->run();
 
         $this->artisan('migrate', [
             '--force' => true,
             '--path' => __DIR__ . '/../database/migrations',
             '--realpath' => true,
-        ]);
-
+        ])->run();
+        
+        /*
         SeedDatabaseState::$seeded = false;
+        SeedDatabaseState::$seedOnce = true;
         SeedDatabaseState::$seeders = [
-            GeographySeeder::class,
-            ProvinceSeeder::class,
-            DistrictSeeder::class,
-            SubdistrictSeeder::class
+            DatabaseSeeder::class,
         ];
         
         $this->seedDatabase();
-        
+        */
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Soap\\ThaiAddresses\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
@@ -52,17 +50,11 @@ class TestCase extends Orchestra
             ThaiAddressesServiceProvider::class,
         ];
     }
-
+    
     public function getEnvironmentSetUp($app)
     {
         config()->set('auth.providers.users.model', User::class);
         config()->set('database.default', 'mysql');
-
-        config()->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
 
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
