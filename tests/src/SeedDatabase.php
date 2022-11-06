@@ -2,8 +2,8 @@
 
 namespace Soap\ThaiAddresses\Tests;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -54,7 +54,7 @@ trait SeedDatabase
     public function syncTransactionTraits()
     {
         $uses = array_flip(class_uses_recursive(static::class));
-        
+
         if (isset($uses[RefreshDatabase::class]) || isset($uses[DatabaseTransactions::class])) {
             $database = $this->app->make('db');
 
@@ -73,7 +73,7 @@ trait SeedDatabase
     private function getSeederInstance()
     {
         return
-            new class() extends Seeder {
+            new class () extends Seeder {
                 public function run()
                 {
                 }

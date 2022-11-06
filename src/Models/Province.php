@@ -7,7 +7,6 @@ use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Province extends Model
 {
-
     protected $fillable = [
         'name_th',
         'name_en',

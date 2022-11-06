@@ -2,15 +2,15 @@
 
 namespace Soap\ThaiAddresses\Tests\Feature;
 
+use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Soap\ThaiAddresses\Tests\Models\User;
-use Soap\ThaiAddresses\Models\Address;
 
-it('can have address', function() {
+it('can have address', function () {
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();
     $address = new Address();
-    $address->fill(   [      
+    $address->fill([
         'label' => 'Default Address',
         'given_name' => 'Prasit',
         'family_name' => 'Gebsaap',
@@ -22,7 +22,7 @@ it('can have address', function() {
         'longitude' => '29.9020376',
         'is_primary' => true,
         'is_billing' => true,
-        'is_shipping' => true
+        'is_shipping' => true,
     ]);
 
     $user->addresses()->save($address);

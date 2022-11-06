@@ -8,7 +8,7 @@ use Soap\ThaiAddresses\Tests\Database\Seeders\DatabaseSeeder;
 use Soap\ThaiAddresses\Tests\Models\User;
 use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
-class TestCase extends Orchestra 
+class TestCase extends Orchestra
 {
     use SeedDatabase;
 
@@ -36,7 +36,7 @@ class TestCase extends Orchestra
         SeedDatabaseState::$seeders = [
             DatabaseSeeder::class,
         ];
-        
+
         $this->seedDatabase();
         */
         Factory::guessFactoryNamesUsing(
@@ -66,6 +66,5 @@ class TestCase extends Orchestra
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
         ]);
-
     }
 }

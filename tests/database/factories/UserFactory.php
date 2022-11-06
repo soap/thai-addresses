@@ -2,9 +2,9 @@
 
 namespace Soap\ThaiAddresses\Tests\Database\Factories;
 
-use Soap\ThaiAddresses\Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Soap\ThaiAddresses\Tests\Models\User;
 
 class UserFactory extends Factory
 {

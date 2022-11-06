@@ -4,7 +4,6 @@ namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
-use Soap\ThaiAddresses\Models\Province;
 
 class District extends Model
 {

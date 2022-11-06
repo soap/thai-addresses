@@ -2,11 +2,11 @@
 
 namespace Soap\ThaiAddresses\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Address extends Model
@@ -28,7 +28,7 @@ class Address extends Model
 
     ];
 
-        /**
+    /**
      * {@inheritdoc}
      */
     protected $casts = [
@@ -66,8 +66,8 @@ class Address extends Model
     }
 
     /**
-     * 
-     * @return BelongsTo 
+     *
+     * @return BelongsTo
      */
     public function subdistrict()
     {
