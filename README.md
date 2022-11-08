@@ -79,7 +79,7 @@ php artisan thai-addresses:db-seed
 ```
 This will install all thai addresses data to the database as configure in the thai-addresses.conf file.
 
-###Manage your address
+### Manage your address
 To add addresses support to your eloquent models simply use \Soap\ThaiAddresses\Traits\HasAddress trait.
 
 ```php
