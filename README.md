@@ -64,18 +64,63 @@ php artisan vendor:publish --tag="thai-addresses-migrations"
 php artisan migrate
 ```
 
-Optionally, you can publish the views using
+Optionally, you can install configuration and migration files using install command.
 
 ```bash
-php artisan vendor:publish --tag="thai-addresses-views"
+php artisan thai-addresses:install
 ```
 
 ## Usage
 
-```php
-$thaiAddresses = new Soap\ThaiAddresses();
+If you want to use only province, district and subdistrict data, you can just run database seeding.
 
-$thaiAddresses->getProvinces();
+```bash
+php artisan thai-addresses:db-seed
+```
+This will install all thai addresses data to the database as configure in the thai-addresses.conf file.
+
+###Manage your address
+To add addresses support to your eloquent models simply use \Soap\ThaiAddresses\Traits\HasAddress trait.
+
+```php
+// Get instance of your model
+$user = new \App\Models\User::find(1);
+
+// Create a new address
+$user->addresses()->create([
+    'label' => 'Default Address',
+    'given_name' => 'Prasit',
+    'family_name' => 'Gebsaap',
+    'organization' => 'KPS Academy',
+    'street' => '1/8 Watchara road',
+    'subdistrict_id' => Subdistrict::where('name_th','=','กระบี่ใหญ่')->first()->id,
+    'latitude' => '31.2467601',
+    'longitude' => '29.9020376',
+    'is_primary' => true,
+    'is_billing' => true,
+    'is_shipping' => true,
+]);
+
+// Create multiple new addresses
+$user->addresses()->createMany([
+    [...],
+    [...],
+    [...],
+]);
+
+// Find an existing address
+$address = app('thai-addresses.address.model')->find(1);
+
+// Update an existing address
+$address->update([
+    'label' => 'Default Work Address',
+]);
+
+// Delete address
+$address->delete();
+
+// Alternative way of address deletion
+$user->addresses()->where('id', 123)->first()->delete();
 
 ```
 
