@@ -51,7 +51,8 @@ return [
     ],
 
     "address" => [
-        "table_name" => "addresses"
+        "table_name" => "addresses",
+         "model" => \Soap\ThaiAddresses\Models\Address::class
     ]
 ];
 ```
@@ -80,7 +81,35 @@ php artisan thai-addresses:db-seed
 This will install all thai addresses data to the database as configure in the thai-addresses.conf file.
 
 ### Manage your address
-To add addresses support to your eloquent models simply use \Soap\ThaiAddresses\Traits\HasAddress trait.
+To add addresses support to your eloquent models simply use \Soap\ThaiAddresses\Traits\HasAddress trait. This package provide polymorphic addressable model. By using this feature, any model can have addresses.
+
+In your App\Models\User.php
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Soap\ThaiAddresses\Tests\Database\Factories\UserFactory;
+use Soap\ThaiAddresses\Traits\HasAddress;
+
+class User extends Authenticatable
+{
+    use HasFactory;
+    use HasAddress;
+
+    protected $guarded = [];
+
+    protected $fillable = [
+        'name',
+        'email',
+    ];
+
+}
+```
+Then your user can have addresses!
 
 ```php
 // Get instance of your model
