@@ -34,7 +34,7 @@ jobs:
         include:
           - laravel: 9.*
             testbench: 7.*
-            packagetools: 1.13.*
+            packagetools: 1.13.5
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
