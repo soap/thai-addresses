@@ -10,9 +10,8 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     env:
-      DB_DATABASE: laravel
+      DB_DATABASE: thai_addresses_package_test
       DB_USERNAME: root
-      DB_PASSWORD: ''
     services:
       mysql:
         image: mysql:latest
