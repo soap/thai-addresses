@@ -10,7 +10,7 @@ use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 class TestCase extends Orchestra
 {
-    use SeedDatabase;
+    //use SeedDatabase;
 
     protected function setUp(): void
     {
@@ -61,7 +61,6 @@ class TestCase extends Orchestra
             'database' => 'thai_addresses_package_test',
             'host' => '127.0.0.1',
             'username' => 'root',
-            'password' => '',
             'prefix' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
