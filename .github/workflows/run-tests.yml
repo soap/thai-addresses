@@ -10,16 +10,6 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_DATABASE: thai_addresses_package_test
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     strategy:
       fail-fast: true
       matrix:
