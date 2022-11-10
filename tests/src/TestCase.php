@@ -54,8 +54,14 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('auth.providers.users.model', User::class);
-        config()->set('database.default', 'mysql');
+        config()->set('database.default', 'testing');
 
+        $app['config']->set('database.connections.testing', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ]);
+        
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
             'database' => 'thai_addresses_package_test',
