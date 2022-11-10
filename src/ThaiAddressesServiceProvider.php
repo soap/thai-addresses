@@ -3,7 +3,6 @@
 namespace Soap\ThaiAddresses;
 
 use Soap\ThaiAddresses\Commands\ThaiAddressesDbSeedCommand;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
