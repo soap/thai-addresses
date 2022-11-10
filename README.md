@@ -12,6 +12,10 @@ This package provides basic thailand provinces database including districts and 
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://mycoding.academy/about-us). We publish all received postcards on [our virtual postcard wall](https://mycoding.academy/open-source/postcards).
 
+## Requirement
+- Laravel 8.x with PHP 7.3 or 8.0
+- soap/thai-addresses v1.x
+
 ## Installation
 
 You can install the package via composer:
@@ -63,12 +67,6 @@ Then you can publish and run the migrations with:
 ```bash
 php artisan vendor:publish --tag="thai-addresses-migrations"
 php artisan migrate
-```
-
-Optionally, you can install configuration and migration files using install command.
-
-```bash
-php artisan thai-addresses:install
 ```
 
 ## Usage
