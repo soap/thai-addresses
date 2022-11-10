@@ -12,6 +12,9 @@ This package provides basic thailand provinces database including districts and 
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://mycoding.academy/about-us). We publish all received postcards on [our virtual postcard wall](https://mycoding.academy/open-source/postcards).
 
+## Requirements
+soap/thai-addresses v2.x for Laravel 9 and PHP 8.0 or 8.1. If you use Laravel 8, please see [release 1.x](https://github.com/soap/thai-addresses/tree/1.x) then. 
+
 ## Installation
 
 You can install the package via composer:
