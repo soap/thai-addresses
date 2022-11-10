@@ -9,11 +9,7 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-    env:
-      DB_DATABASE: thai_addresses_package_test
-      DB_USERNAME: root
-      DB_PASSWORD: ""
-      DB_PORT: 3306
+    
     services:
       mysql:
         image: mysql:latest
