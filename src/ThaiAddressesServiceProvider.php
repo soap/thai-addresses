@@ -28,17 +28,7 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
             ])
             ->hasCommands([
                 ThaiAddressesDbSeedCommand::class,
-            ])
-            ->hasInstallCommand(function (InstallCommand $command) {
-                $command
-                ->startWith(function (InstallCommand $command) {
-                    $command->info("Start copy config, migration, migrate and database seeding");
-                })
-                ->publishConfigFile()
-                ->publishMigrations()
-                ->askToRunMigrations()
-                ->askToStarRepoOnGitHub('soap/thai-addresses');
-            });
+            ]);
     }
 
     public function registeringPackage()
