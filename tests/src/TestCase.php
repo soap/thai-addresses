@@ -57,11 +57,11 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         $app['config']->set('database.connections.testing', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
-        
+
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',
             'database' => 'thai_addresses_package_test',
