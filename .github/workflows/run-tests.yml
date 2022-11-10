@@ -8,7 +8,7 @@ on:
       - 'docs/**'
   pull_request:
     paths-ignore:
-      - "**.md"
+g      - "**.md"
       - 'docs/**'
     branches: [main]
 jobs:
