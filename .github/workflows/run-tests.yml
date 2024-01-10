@@ -22,7 +22,8 @@ jobs:
         php: [8.1, 8.2]
         laravel: [10.*]
         stability: [prefer-stable]
-        testbench: [latest]
+        testbench: [8.0]
+        packagetools: [1.16]
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
