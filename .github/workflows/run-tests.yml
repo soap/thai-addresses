@@ -25,6 +25,7 @@ jobs:
         include:
           - laravel: 10.*
             testbench: 8.*
+            packagetools: 1.16
           - laravel: 9.*
             testbench: 7.*
             packagetools: 1.13.5
