@@ -6,7 +6,8 @@
 [![Check & fix styling](https://github.com/soap/thai-addresses/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/soap/thai-addresses/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/soap/thai-addresses.svg?style=flat-square)](https://packagist.org/packages/soap/thai-addresses)
 
-This package provides basic thailand provinces database including districts and subdistricts. Addresable models also provided to use with any Eloquent models.
+This package provides basic thailand provinces database including districts and subdistricts. Addressable models also provided to use with any Eloquent models.
+## Version Support
 
 ## Support us
 
