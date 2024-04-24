@@ -19,11 +19,11 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.1, 8.2]
-        laravel: [10.*]
+        php: [8.2]
+        laravel: [10.*, 11.*]
         stability: [prefer-stable]
-        testbench: [8.0]
-        packagetools: [1.16]
+        testbench: ['latest']
+        packagetools: ['latest']
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
