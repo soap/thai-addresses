@@ -12,20 +12,11 @@ class User extends Authenticatable
     use HasAddress;
     use HasFactory;
 
-    protected $guarded = [];
-
-    protected $fillable = [
-        'name',
-        'email',
-    ];
+    protected $guarded = ['id'];
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    protected static function newFactory()
-    {
-        return UserFactory::new();
-    }
 }
