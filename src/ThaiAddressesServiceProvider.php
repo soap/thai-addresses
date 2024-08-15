@@ -44,9 +44,11 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
     public function registeringPackage()
     {
         $this->app->bind('thai-addresses', function ($app) {
-            return new ThaiAddresses;
+            return new ThaiAddresses();
         });
     }
 
-    public function bootingPackage() {}
+    public function bootingPackage()
+    {
+    }
 }
