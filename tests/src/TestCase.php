@@ -20,16 +20,16 @@ class TestCase extends Orchestra
             '--force' => true,
             '--seed' => true,
             '--seeder' => DatabaseSeeder::class,
-            '--path' => __DIR__ . '/../../database/migrations',
+            '--path' => __DIR__.'/../../database/migrations',
             '--realpath' => true,
         ])->run();
-
+        /*
         $this->artisan('migrate', [
             '--force' => true,
             '--path' => __DIR__ . '/../database/migrations',
             '--realpath' => true,
         ])->run();
-
+        */
         /*
         SeedDatabaseState::$seeded = false;
         SeedDatabaseState::$seedOnce = true;

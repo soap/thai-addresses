@@ -31,24 +31,22 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
             ])
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                ->startWith(function (InstallCommand $command) {
-                    $command->info("Start copy config, migration, migrate and database seeding");
-                })
-                ->publishConfigFile()
-                ->publishMigrations()
-                ->askToRunMigrations()
-                ->askToStarRepoOnGitHub('soap/thai-addresses');
+                    ->startWith(function (InstallCommand $command) {
+                        $command->info('Start copy config, migration, migrate and database seeding');
+                    })
+                    ->publishConfigFile()
+                    ->publishMigrations()
+                    ->askToRunMigrations()
+                    ->askToStarRepoOnGitHub('soap/thai-addresses');
             });
     }
 
     public function registeringPackage()
     {
         $this->app->bind('thai-addresses', function ($app) {
-            return new ThaiAddresses();
+            return new ThaiAddresses;
         });
     }
 
-    public function bootingPackage()
-    {
-    }
+    public function bootingPackage() {}
 }

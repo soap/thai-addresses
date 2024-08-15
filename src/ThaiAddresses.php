@@ -10,7 +10,9 @@ class ThaiAddresses
 {
     /**
      * Get geograpy table name (ตารางสำหรับข้อมูลภาค)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -22,7 +24,9 @@ class ThaiAddresses
 
     /**
      * Get province table name (ตารางสำหรับข้อมูลจังหวัด)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -34,7 +38,9 @@ class ThaiAddresses
 
     /**
      * Get district table name (ตารางสำหรับข้อมูลอำเภอ)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -46,7 +52,9 @@ class ThaiAddresses
 
     /**
      * Get subdistrict table name (ตารางสำหรับข้อมูลตำบล/เทศบาล)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -63,7 +71,9 @@ class ThaiAddresses
 
     /**
      * Get geograpy foreign key name (อ้างอิงจากตารางจังหวัด)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -75,7 +85,9 @@ class ThaiAddresses
 
     /**
      * Get province foreign key name (อ้างอิงโดยตารางอำเภอ)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface
@@ -87,7 +99,9 @@ class ThaiAddresses
 
     /**
      * Get district foreign key name (อ้างอิงโดยตารางภาค)
+     *
      * @return mixed
+     *
      * @throws BindingResolutionException
      * @throws NotFoundExceptionInterface
      * @throws ContainerExceptionInterface

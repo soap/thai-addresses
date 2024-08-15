@@ -29,8 +29,6 @@ trait SeedDatabase
 
     /**
      * Calls specific seeders if possible.
-     *
-     * @param array $seeders
      */
     public function runSeeders(array $seeders)
     {
@@ -73,10 +71,9 @@ trait SeedDatabase
     private function getSeederInstance()
     {
         return
-            new class () extends Seeder {
-                public function run()
-                {
-                }
+            new class extends Seeder
+            {
+                public function run() {}
             };
     }
 }

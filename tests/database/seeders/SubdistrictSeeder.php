@@ -12,7 +12,7 @@ class SubdistrictSeeder extends Seeder
     public function run()
     {
         Subdistrict::query()->delete();
-        $json = File::get(__DIR__ . '/../../../database/seeders/data/subdistricts.json');
+        $json = File::get(__DIR__.'/../../../database/seeders/data/subdistricts.json');
         $subdistricts = json_decode($json);
 
         foreach ($subdistricts as $item) {

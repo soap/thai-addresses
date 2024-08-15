@@ -8,7 +8,7 @@ use Soap\ThaiAddresses\Facades\ThaiAddresses;
 return new class extends Migration
 {
     public function up()
-    {      
+    {
         Schema::create(ThaiAddresses::getDistrictTableName(), function (Blueprint $table) {
             $table->id();
 
@@ -26,5 +26,4 @@ return new class extends Migration
     {
         Schema::dropIfExists(ThaiAddresses::getDistrictTableName());
     }
-    
 };

@@ -9,8 +9,8 @@ use Soap\ThaiAddresses\Traits\HasAddress;
 
 class User extends Authenticatable
 {
-    use HasFactory;
     use HasAddress;
+    use HasFactory;
 
     protected $guarded = [];
 

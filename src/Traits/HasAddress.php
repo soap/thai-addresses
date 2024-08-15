@@ -12,8 +12,7 @@ trait HasAddress
     /**
      * Register a deleted model event with the dispatcher.
      *
-     * @param \Closure|string $callback
-     *
+     * @param  \Closure|string  $callback
      * @return void
      */
     abstract public static function deleted($callback);
@@ -21,12 +20,11 @@ trait HasAddress
     /**
      * Define a polymorphic one-to-many relationship.
      *
-     * @param string $related
-     * @param string $name
-     * @param string $type
-     * @param string $id
-     * @param string $localKey
-     *
+     * @param  string  $related
+     * @param  string  $name
+     * @param  string  $type
+     * @param  string  $id
+     * @param  string  $localKey
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     abstract public function morphMany($related, $name, $type = null, $id = null, $localKey = null);
@@ -45,8 +43,6 @@ trait HasAddress
 
     /**
      * Get all attached addresses to the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function addresses(): MorphMany
     {
@@ -56,12 +52,10 @@ trait HasAddress
     /**
      * Find addressables by distance.
      *
-     * @param string $distance
-     * @param string $unit
-     * @param string $latitude
-     * @param string $longitude
-     *
-     * @return \Illuminate\Support\Collection
+     * @param  string  $distance
+     * @param  string  $unit
+     * @param  string  $latitude
+     * @param  string  $longitude
      */
     public function findByDistance($distance, $unit, $latitude, $longitude): Collection
     {
