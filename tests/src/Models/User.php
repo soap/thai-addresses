@@ -4,7 +4,6 @@ namespace Soap\ThaiAddresses\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Soap\ThaiAddresses\Tests\Database\Factories\UserFactory;
 use Soap\ThaiAddresses\Traits\HasAddress;
 
 class User extends Authenticatable
@@ -18,5 +17,4 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
 }

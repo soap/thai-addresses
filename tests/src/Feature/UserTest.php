@@ -6,7 +6,7 @@ use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Soap\ThaiAddresses\Tests\Models\User;
 
-it('user can have address', function () {
+test('user can have address', function () {
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();
     $address = new Address;
