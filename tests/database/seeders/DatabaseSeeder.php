@@ -7,10 +7,10 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-    * Run the database seeders.
-    *
-    * @return void
-    */
+     * Run the database seeders.
+     *
+     * @return void
+     */
     public function run()
     {
         $this->call([

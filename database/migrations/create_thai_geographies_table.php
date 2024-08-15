@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
 
             // add fields
-    
+
             $table->string('name_en');
             $table->string('name_th');
             $table->timestamps();
@@ -24,5 +24,4 @@ return new class extends Migration
     {
         Schema::dropIfExists(ThaiAddresses::getGeographyTableName());
     }
-
 };

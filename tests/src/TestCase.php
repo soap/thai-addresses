@@ -18,29 +18,22 @@ class TestCase extends Orchestra
 
         $this->artisan('migrate:fresh', [
             '--force' => true,
-            '--seed' => true,
-            '--seeder' => DatabaseSeeder::class,
-            '--path' => __DIR__ . '/../../database/migrations',
+            '--seed' => false,
+            '--path' => __DIR__.'/../../database/migrations', //package migration path
             '--realpath' => true,
         ])->run();
 
         $this->artisan('migrate', [
             '--force' => true,
-            '--path' => __DIR__ . '/../database/migrations',
+            '--seed' => false,
+            '--path' => __DIR__.'/../database/migrations', //test migration path
             '--realpath' => true,
         ])->run();
 
-        /*
-        SeedDatabaseState::$seeded = false;
-        SeedDatabaseState::$seedOnce = true;
-        SeedDatabaseState::$seeders = [
-            DatabaseSeeder::class,
-        ];
+        $this->seed(DatabaseSeeder::class);
 
-        $this->seedDatabase();
-        */
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Soap\\ThaiAddresses\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Soap\\ThaiAddresses\\Tests\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -55,12 +48,6 @@ class TestCase extends Orchestra
     {
         config()->set('auth.providers.users.model', User::class);
         config()->set('database.default', 'testing');
-
-        $app['config']->set('database.connections.testing', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
 
         config()->set('database.connections.mysql', [
             'driver' => 'mysql',

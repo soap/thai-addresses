@@ -11,7 +11,7 @@ class DistrictSeeder extends Seeder
     public function run()
     {
         District::query()->delete();
-        $json = File::get(__DIR__ . '/../../../database/seeders/data/districts.json');
+        $json = File::get(__DIR__.'/../../../database/seeders/data/districts.json');
         $districts = json_decode($json);
 
         foreach ($districts as $item) {

@@ -57,8 +57,6 @@ class Address extends Model
 
     /**
      * Get the owner model of the address.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function addressable(): MorphTo
     {
@@ -66,7 +64,6 @@ class Address extends Model
     }
 
     /**
-     *
      * @return BelongsTo
      */
     public function subdistrict()
@@ -76,10 +73,6 @@ class Address extends Model
 
     /**
      * Scope primary addresses.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeIsPrimary(Builder $builder): Builder
     {
@@ -88,10 +81,6 @@ class Address extends Model
 
     /**
      * Scope billing addresses.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeIsBilling(Builder $builder): Builder
     {
@@ -100,10 +89,6 @@ class Address extends Model
 
     /**
      * Scope shipping addresses.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeIsShipping(Builder $builder): Builder
     {

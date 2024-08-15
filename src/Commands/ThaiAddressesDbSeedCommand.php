@@ -27,12 +27,10 @@ class ThaiAddressesDbSeedCommand extends Command
             '--class' => 'Soap\ThaiAddresses\Database\Seeders\DistrictSeeder',
         ]);
 
-
         $this->info('Seeding subdistrict database ...');
         $this->call('db:seed', [
             '--class' => 'Soap\ThaiAddresses\Database\Seeders\SubdistrictSeeder',
         ]);
-
 
         $this->comment('All done');
 

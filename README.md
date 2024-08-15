@@ -2,15 +2,19 @@
 # Thai addressable mdoels and provinces database for Laravel.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/thai-addresses.svg?style=flat-square)](https://packagist.org/packages/soap/thai-addresses)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/thai-addresses/run-tests?label=tests)](https://github.com/soap/thai-addresses/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/thai-addresses/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/thai-addresses/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![run-tests](https://github.com/soap/thai-addresses/actions/workflows/run-tests.yml/badge.svg)](https://github.com/soap/thai-addresses/actions/workflows/run-tests.yml)
+[![Check & fix styling](https://github.com/soap/thai-addresses/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/soap/thai-addresses/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/soap/thai-addresses.svg?style=flat-square)](https://packagist.org/packages/soap/thai-addresses)
 
-This package provides basic thailand provinces database including districts and subdistricts. Addresable models also provided to use with any Eloquent models.
+This package provides basic thailand provinces database including districts and subdistricts. Addressable models also provided to use with any Eloquent models.
+## Version Support
 
 ## Support us
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://mycoding.academy/about-us). We publish all received postcards on [our virtual postcard wall](https://mycoding.academy/open-source/postcards).
+
+## Requirements
+soap/thai-addresses v2.x for Laravel 9 and PHP 8.0 or 8.1. If you use Laravel 8, please see [release 1.x](https://github.com/soap/thai-addresses/tree/1.x) then. 
 
 ## Installation
 

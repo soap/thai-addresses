@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('family_name');
 
             $table->string('label')->nullable();
-            
+
             $table->string('organization')->nullable();
             $table->string('street')->nullable();
             $table->foreignId('subdistrict_id')->nullable();
@@ -31,12 +31,11 @@ return new class extends Migration
             $table->boolean('is_shipping')->default(false);
             $table->timestamps();
             $table->softDeletes();
-        });    
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists(ThaiAddresses::getAddressTableName());
     }
-
 };
