@@ -3,6 +3,7 @@
 namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 /**
@@ -16,14 +17,12 @@ class Geography extends Model
         'name_en',
     ];
 
-    public function __construct(array $attributes = [])
+    public function getTable()
     {
-        parent::__construct($attributes);
-
-        $this->table = ThaiAddresses::getGeographyTableName();
+        return ThaiAddresses::getGeographyTableName();
     }
 
-    public function provinces()
+    public function provinces(): HasMany
     {
         return $this->hasMany(Province::class);
     }

@@ -4,6 +4,8 @@ namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Subdistrict extends Model
@@ -16,19 +18,17 @@ class Subdistrict extends Model
         'name_en',
     ];
 
-    public function __construct(array $attributes = [])
+    public function getTable()
     {
-        parent::__construct($attributes);
-
-        $this->table = ThaiAddresses::getSubdistrictTableName();
+        return ThaiAddresses::getSubdistrictTableName();
     }
 
-    public function district()
+    public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
 
-    public function addresses()
+    public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
     }

@@ -9,10 +9,9 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create(ThaiAddresses::getSubdistrictTableName(), function (Blueprint $table) {
+        $table = ThaiAddresses::getSubdistrictTableName();
+        Schema::create($table, function (Blueprint $table) {
             $table->id();
-
-            // add fields
             $table->string('zip_code');
             $table->string('name_th');
             $table->string('name_en');
@@ -24,6 +23,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists(ThaiAddresses::getSubdistrictTableName());
+        $table = ThaiAddresses::getSubdistrictTableName();
+        Schema::dropIfExists($table);
     }
 };

@@ -48,11 +48,9 @@ class Address extends Model
         'deleted_at' => 'datetime',
     ];
 
-    public function __construct(array $attributes = [])
+    public function getTable()
     {
-        parent::__construct($attributes);
-
-        $this->table = ThaiAddresses::getAddressTableName();
+        return ThaiAddresses::getAddressTableName();
     }
 
     /**
@@ -63,10 +61,7 @@ class Address extends Model
         return $this->morphTo('addressable', 'addressable_type', 'addressable_id', 'id');
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function subdistrict()
+    public function subdistrict(): BelongsTo
     {
         return $this->belongsTo(Subdistrict::class);
     }

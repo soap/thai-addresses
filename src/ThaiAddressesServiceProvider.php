@@ -40,15 +40,4 @@ class ThaiAddressesServiceProvider extends PackageServiceProvider
                     ->askToStarRepoOnGitHub('soap/thai-addresses');
             });
     }
-
-    public function registeringPackage()
-    {
-        $this->app->bind('thai-addresses', function ($app) {
-            return new ThaiAddresses();
-        });
-    }
-
-    public function bootingPackage()
-    {
-    }
 }
