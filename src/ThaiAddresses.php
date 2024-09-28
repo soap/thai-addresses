@@ -2,112 +2,73 @@
 
 namespace Soap\ThaiAddresses;
 
-use Illuminate\Contracts\Container\BindingResolutionException;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-
 class ThaiAddresses
 {
+    protected $config;
+
+    public function __construct()
+    {
+        $this->config = config('thai-addresses');
+    }
+
     /**
      * Get geograpy table name (ตารางสำหรับข้อมูลภาค)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getGeographyTableName()
+    public function getGeographyTableName(): string
     {
-        return config('thai-addresses.geography.table_name');
+        return $this->config['geography']['table_name'];
     }
 
     /**
      * Get province table name (ตารางสำหรับข้อมูลจังหวัด)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getProvinceTableName()
+    public function getProvinceTableName(): string
     {
-        return config('thai-addresses.province.table_name');
+        return $this->config['province']['table_name'];
     }
 
     /**
      * Get district table name (ตารางสำหรับข้อมูลอำเภอ)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getDistrictTableName()
+    public function getDistrictTableName(): string
     {
-        return config('thai-addresses.district.table_name');
+        return $this->config['district']['table_name'];
     }
 
     /**
      * Get subdistrict table name (ตารางสำหรับข้อมูลตำบล/เทศบาล)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getSubdistrictTableName()
+    public function getSubdistrictTableName(): string
     {
-        return config('thai-addresses.subdistrict.table_name');
+        return $this->config['subdistrict']['table_name'];
     }
 
-    public function getAddressTableName()
+    public function getAddressTableName(): string
     {
-        return config('thai-addresses.address.table_name');
+        return $this->config['address']['table_name'];
     }
 
     /**
      * Get geograpy foreign key name (อ้างอิงจากตารางจังหวัด)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getGeographyForeignKeyName()
+    public function getGeographyForeignKeyName(): string
     {
-        return config('thai-addresses.geography.foreign_key');
+        return $this->config['geography']['foreign_key'];
     }
 
     /**
      * Get province foreign key name (อ้างอิงโดยตารางอำเภอ)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getProvinceForeignKeyName()
+    public function getProvinceForeignKeyName(): string
     {
-        return config('thai-addresses.province.foreign_key');
+        return $this->config['province']['foreign_key'];
     }
 
     /**
      * Get district foreign key name (อ้างอิงโดยตารางภาค)
-     *
-     * @return mixed
-     *
-     * @throws BindingResolutionException
-     * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      */
-    public function getDistrictForeignKeyName()
+    public function getDistrictForeignKeyName(): string
     {
-        return config('thai-addresses.district.foreign_key');
+        return $this->config['district']['foreign_key'];
     }
 }

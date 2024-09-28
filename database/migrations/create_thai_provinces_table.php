@@ -9,7 +9,8 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create(ThaiAddresses::getProvinceTableName(), function (Blueprint $table) {
+        $table = ThaiAddresses::getProvinceTableName();
+        Schema::create($table, function (Blueprint $table) {
 
             $table->id();
             // add fields
@@ -23,6 +24,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists(ThaiAddresses::getProvinceTableName());
+        $table = ThaiAddresses::getProvinceTableName();
+        Schema::dropIfExists($table);
     }
 };

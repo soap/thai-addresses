@@ -3,6 +3,8 @@
 namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Soap\ThaiAddresses\Facades\ThaiAddresses;
 
 class Province extends Model
@@ -13,19 +15,17 @@ class Province extends Model
         'code',
     ];
 
-    public function __construct(array $attributes = [])
+    public function getTable()
     {
-        parent::__construct($attributes);
-
-        $this->table = ThaiAddresses::getProvinceTableName();
+        return ThaiAddresses::getProvinceTableName();
     }
 
-    public function geography()
+    public function geography(): BelongsTo
     {
         return $this->belongsTo(Geography::class);
     }
 
-    public function districts()
+    public function districts(): HasMany
     {
         return $this->hasMany(District::class);
     }
