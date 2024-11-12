@@ -9,8 +9,8 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create(ThaiAddresses::getAddressTableName(), function (Blueprint $table) {
-            // Columns
+        $table = ThaiAddresses::getAddressTableName();
+        Schema::create($table, function (Blueprint $table) {
             $table->id('id');
             $table->morphs('addressable');
 
@@ -36,6 +36,7 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists(ThaiAddresses::getAddressTableName());
+        $table = ThaiAddresses::getAddressTableName();
+        Schema::dropIfExists($table);
     }
 };

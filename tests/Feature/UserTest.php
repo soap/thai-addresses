@@ -1,10 +1,12 @@
 <?php
 
-namespace Soap\ThaiAddresses\Tests\Feature;
-
 use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
-use Soap\ThaiAddresses\Tests\Models\User;
+use Workbench\App\Models\User;
+
+beforeEach(function () {
+    $this->artisan('thai-addresses:db-seed');
+});
 
 test('user can have address', function () {
     $user = User::factory()->create();
@@ -27,5 +29,5 @@ test('user can have address', function () {
 
     $user->addresses()->save($address);
 
-    $this->assertCount(1, $user->addresses, 'User can be assigned address');
+    expect($user->addresses)->toHaveCount(1, 'User can be assigned address');
 });

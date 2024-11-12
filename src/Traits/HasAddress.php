@@ -51,13 +51,8 @@ trait HasAddress
 
     /**
      * Find addressables by distance.
-     *
-     * @param  string  $distance
-     * @param  string  $unit
-     * @param  string  $latitude
-     * @param  string  $longitude
      */
-    public function findByDistance($distance, $unit, $latitude, $longitude): Collection
+    public function findByDistance(string $distance, string $unit, string $latitude, string $longitude): Collection
     {
         // @TODO: this method needs to be refactored!
         return $this->addresses()->within($distance, $unit, $latitude, $longitude)->get();
