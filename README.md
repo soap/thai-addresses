@@ -19,6 +19,7 @@ This package provides basic thailand provinces database including districts and 
 If you found benefit from using the package, you can recommend any approvements, bugs report or even support me through GitHub Sponsor.
 
 ## Requirements
+soap/thai-addresses v3.x supports Laravel 10 and 11 on PHP8.2 and 8.3.
 soap/thai-addresses v2.x for Laravel 9 and PHP 8.0 or 8.1. If you use Laravel 8, please see [release 1.x](https://github.com/soap/thai-addresses/tree/1.x) then. 
 
 ## Installation
