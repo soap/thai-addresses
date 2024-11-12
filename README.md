@@ -8,10 +8,15 @@
 
 This package provides basic thailand provinces database including districts and subdistricts. Addressable models also provided to use with any Eloquent models.
 ## Version Support
+| Laravel       | Version       |
+| ------------- | ------------- |
+| 8.x           | 1.x           |
+| 9.x           | 2.x           |
+| 10.x, 11.x    | 3.x           |
 
 ## Support us
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://mycoding.academy/about-us). We publish all received postcards on [our virtual postcard wall](https://mycoding.academy/open-source/postcards).
+If you found benefit from using the package, you can recommend any approvements, bugs report or even support me through GitHub Sponsor.
 
 ## Requirements
 soap/thai-addresses v2.x for Laravel 9 and PHP 8.0 or 8.1. If you use Laravel 8, please see [release 1.x](https://github.com/soap/thai-addresses/tree/1.x) then. 
