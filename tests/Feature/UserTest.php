@@ -4,6 +4,10 @@ use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Workbench\App\Models\User;
 
+beforeEach(function () {
+    $this->artisan('thai-addresses:db-seed');
+});
+
 test('user can have address', function () {
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();

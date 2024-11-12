@@ -12,7 +12,12 @@ class ProvinceSeeder extends Seeder
     public function run()
     {
         Province::query()->delete();
-        $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/provinces.json'));
+        if (File::exists(base_path('/vendor/soap/thai-addresses/database/seeders/data/provinces.json'))) {
+            $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/provinces.json'));
+        } else {
+            $json = File::get(__DIR__.'/data/provinces.json');
+        }
+
         $provinces = json_decode($json);
 
         foreach ($provinces as $item) {

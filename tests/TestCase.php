@@ -5,6 +5,7 @@ namespace Soap\ThaiAddresses\Tests;
 use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -23,9 +24,14 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Soap\\ThaiAddresses\\Tests\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        Factory::guessFactoryNamesUsing(function (string $modelName) {
+            if (Str::startsWith($modelName, 'Workbench\\App\\Models\\')) {
+                // Factories within the tests directory
+                return 'Workbench\\Database\\Factories\\'.class_basename($modelName).'Factory';
+            }
+
+            return 'Soap\\ThaiAddresses\\Tests\\Database\\Factories\\'.class_basename($modelName).'Factory';
+        });
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); //load package's migrations
     }

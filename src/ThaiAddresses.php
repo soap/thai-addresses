@@ -71,4 +71,9 @@ class ThaiAddresses
     {
         return $this->config['district']['foreign_key'];
     }
+
+    public function lastUpdated()
+    {
+        return '2024-11-01';
+    }
 }

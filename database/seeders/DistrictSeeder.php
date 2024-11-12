@@ -11,7 +11,11 @@ class DistrictSeeder extends Seeder
     public function run()
     {
         District::query()->delete();
-        $json = File::get(base_path('vendor/soap/thai-addresses/database/seeders/data/districts.json'));
+        if (File::exists(base_path('vendor/soap/thai-addresses/database/seeders/data/districts.json'))) {
+            $json = File::get(base_path('vendor/soap/thai-addresses/database/seeders/data/districts.json'));
+        } else {
+            $json = File::get(realpath('database/seeders/data/districts.json'));
+        }
         $districts = json_decode($json);
 
         foreach ($districts as $item) {

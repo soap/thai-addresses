@@ -9,7 +9,7 @@ beforeEach(function () {
     $this->artisan('thai-addresses:db-seed');
 });
 
-test('seeder command is working', function () {
+test('seeder commands are working', function () {
     $regions = Geography::all();
     expect($regions)->toHaveCount(6, '6 regions exists');
 
