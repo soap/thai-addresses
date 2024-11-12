@@ -1,15 +1,13 @@
 <?php
 
-namespace Soap\ThaiAddresses\Tests\Feature;
-
 use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
-use Soap\ThaiAddresses\Tests\Models\User;
+use Workbench\App\Models\User;
 
 test('user can have address', function () {
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();
-    $address = new Address();
+    $address = new Address;
     $address->fill([
         'label' => 'Default Address',
         'given_name' => 'Prasit',
@@ -27,5 +25,5 @@ test('user can have address', function () {
 
     $user->addresses()->save($address);
 
-    $this->assertCount(1, $user->addresses, 'User can be assigned address');
+    expect($user->addresses)->toHaveCount(1, 'User can be assigned address');
 });

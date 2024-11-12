@@ -11,7 +11,7 @@ class SubdistrictSeeder extends Seeder
     public function run()
     {
         Subdistrict::query()->delete();
-        $json = File::get(base_path('vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'));
+        $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'));
         $subdistricts = json_decode($json);
 
         foreach ($subdistricts as $item) {

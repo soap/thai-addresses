@@ -11,7 +11,7 @@ class GeographySeeder extends Seeder
     public function run()
     {
         Geography::query()->delete();
-        $json = File::get(base_path('vendor/soap/thai-addresses/database/seeders/data/geographies.json'));
+        $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/geographies.json'));
         $geographies = json_decode($json);
 
         foreach ($geographies as $item) {
