@@ -1,20 +1,14 @@
 <?php
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Workbench\App\Models\User;
 
-uses(RefreshDatabase::class);
-
-beforeEach(function () {
-    $this->artisan('thai-addresses:db-seed');
-});
-
 test('user can have address', function () {
+    $this->artisan('thai-addresses:db-seed');
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();
-    $address = new Address();
+    $address = new Address;
     $address->fill([
         'label' => 'Default Address',
         'given_name' => 'Prasit',
