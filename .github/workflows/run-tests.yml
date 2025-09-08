@@ -11,9 +11,25 @@ on:
       - "**.md"
       - 'docs/**'
     branches: [main]
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    
+    # เพิ่ม MySQL service
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: thai_addresses_package_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     
     strategy:
       fail-fast: true
@@ -31,27 +47,47 @@ jobs:
            packagetools: 1.16.*
            
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, pdo_mysql, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
-
+          
       - name: Setup problem matchers
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-
+          
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "spatie/laravel-package-tools:${{ matrix.packagetools }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
-
+          
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h 127.0.0.1 -u root -proot --silent; do
+            echo 'Waiting for MySQL...'
+            sleep 2
+          done
+          echo 'MySQL is ready!'
+          
+      - name: Create testing database
+        run: |
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE IF NOT EXISTS thai_addresses_package_test;"
+          mysql -h 127.0.0.1 -u root -proot -e "SHOW DATABASES;"
+          
       - name: Execute tests
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: thai_addresses_package_test
+          DB_USERNAME: root
+          DB_PASSWORD: root
         run: vendor/bin/pest
