@@ -4,7 +4,6 @@ namespace Soap\ThaiAddresses\Tests;
 
 use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,7 +16,6 @@ use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 class TestCase extends Orchestra
 {
     // autoload using workbench.yaml
-    use RefreshDatabase;
     use WithWorkbench;
 
     protected function setUp(): void
@@ -33,7 +31,7 @@ class TestCase extends Orchestra
             return 'Soap\\ThaiAddresses\\Tests\\Database\\Factories\\'.class_basename($modelName).'Factory';
         });
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); // load package's migrations
+        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); // load package's migrations
     }
 
     protected function getPackageProviders($app)
@@ -47,9 +45,9 @@ class TestCase extends Orchestra
     {
         tap($app['config'], function (Repository $config) {
             $config->set('auth.providers.users.model', User::class);
-            $config->set('database.default', 'testing');
+            $config->set('database.default', 'mysql');
 
-            $config->set('database.connections.mysql', [
+            $config->set('database.connections.testing', [
                 'driver' => 'mysql',
                 'database' => 'thai_addresses_package_test',
                 'host' => '127.0.0.1',
@@ -58,11 +56,28 @@ class TestCase extends Orchestra
                 'charset' => 'utf8mb4',
                 'collation' => 'utf8mb4_unicode_ci',
             ]);
+
+            $config->set('database.connections.mysql', [
+                'driver' => 'mysql',
+                'database' => 'thai_addresses_package_test',
+                'host' => '127.0.0.1',
+                'username' => 'root',
+                'password' => '', // เพิ่ม password
+                'prefix' => '',
+                'charset' => 'utf8mb4',
+                'collation' => 'utf8mb4_unicode_ci',
+                'strict' => false,
+                'engine' => null,
+            ]);
         });
     }
 
     protected function defineDatabaseMigrations()
     {
+        // Load package migrations
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        // Load workbench migrations
         $this->loadMigrationsFrom(workbench_path('database/migrations'));
     }
 }

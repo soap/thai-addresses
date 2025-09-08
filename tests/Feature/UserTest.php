@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Soap\ThaiAddresses\Models\Address;
 use Soap\ThaiAddresses\Models\Subdistrict;
 use Workbench\App\Models\User;
+
+uses(RefreshDatabase::class);
 
 beforeEach(function () {
     $this->artisan('thai-addresses:db-seed');
