@@ -1,1 +1,1 @@
-{"version":"pest_2.36.0","defects":[],"times":{"P\\Tests\\Feature\\UserTest::__pest_evaluable_user_can_have_address":0.095,"P\\Tests\\Unit\\DatabaseSeederTest::__pest_evaluable_seeder_command_is_working":0.092,"P\\Tests\\Unit\\DatabaseSeederTest::__pest_evaluable_seeder_commands_are_working":0.074}}
+{"version":"pest_3.8.4","defects":[],"times":{"P\\Tests\\Feature\\UserTest::__pest_evaluable_user_can_have_address":3.69,"P\\Tests\\Unit\\DatabaseSeederTest::__pest_evaluable_seeder_commands_are_working":0.105}}

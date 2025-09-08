@@ -10,6 +10,9 @@ class DistrictSeeder extends Seeder
 {
     public function run()
     {
+        if (! \Schema::hasTable((new District)->getTable())) {
+            throw new \Exception('District table does not exist.');
+        }
         District::query()->delete();
         if (File::exists(base_path('vendor/soap/thai-addresses/database/seeders/data/districts.json'))) {
             $json = File::get(base_path('vendor/soap/thai-addresses/database/seeders/data/districts.json'));

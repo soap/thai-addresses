@@ -8,11 +8,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
-
-use function Orchestra\Testbench\workbench_path;
-
 use Soap\ThaiAddresses\Tests\Models\User;
 use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
+
+use function Orchestra\Testbench\workbench_path;
 
 class TestCase extends Orchestra
 {
@@ -33,7 +32,7 @@ class TestCase extends Orchestra
             return 'Soap\\ThaiAddresses\\Tests\\Database\\Factories\\'.class_basename($modelName).'Factory';
         });
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); //load package's migrations
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations'); // load package's migrations
     }
 
     protected function getPackageProviders($app)

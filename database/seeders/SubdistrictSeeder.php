@@ -10,6 +10,9 @@ class SubdistrictSeeder extends Seeder
 {
     public function run()
     {
+        if (! \Schema::hasTable((new Subdistrict)->getTable())) {
+            throw new \Exception('Subdistrict table does not exist.');
+        }
         Subdistrict::query()->delete();
         if (File::exists(base_path('/vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'))) {
             $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'));
