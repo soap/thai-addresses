@@ -9,10 +9,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Soap\ThaiAddresses\Tests\Models\User;
-use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 use function Orchestra\Testbench\workbench_path;
+
+use Soap\ThaiAddresses\Tests\Models\User;
+use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 class TestCase extends Orchestra
 {
