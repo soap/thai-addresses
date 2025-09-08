@@ -16,7 +16,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     
-    # เพิ่ม MySQL service
+    # Add MySQL service
     services:
       mysql:
         image: mysql:8.0
