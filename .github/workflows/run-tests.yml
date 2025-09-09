@@ -2,7 +2,7 @@ name: run-tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
     paths-ignore:
       - "**.md"
       - 'docs/**'
@@ -10,7 +10,7 @@ on:
     paths-ignore:
       - "**.md"
       - 'docs/**'
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   test:
