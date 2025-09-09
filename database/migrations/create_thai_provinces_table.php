@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Soap\ThaiAddresses\Facades\ThaiAddresses;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 return new class extends Migration
 {

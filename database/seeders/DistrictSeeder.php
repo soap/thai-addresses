@@ -5,6 +5,7 @@ namespace Soap\ThaiAddresses\Database\Seeders;
 use File;
 use Illuminate\Database\Seeder;
 use Soap\ThaiAddresses\Models\District;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 class DistrictSeeder extends Seeder
 {
@@ -27,7 +28,7 @@ class DistrictSeeder extends Seeder
                 'code' => $item->code,
                 'name_th' => $item->name_th,
                 'name_en' => $item->name_en,
-                config('thai-addresses.province.foreign_key') => $item->province_id,
+                ThaiAddresses::getProvinceForeignKeyName() => $item->province_id,
             ]);
         }
     }

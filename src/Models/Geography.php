@@ -4,7 +4,7 @@ namespace Soap\ThaiAddresses\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Soap\ThaiAddresses\Facades\ThaiAddresses;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 /**
  * @property string $name_th
@@ -17,13 +17,13 @@ class Geography extends Model
         'name_en',
     ];
 
-    public function getTable()
+    public function getTable(): string
     {
         return ThaiAddresses::getGeographyTableName();
     }
 
     public function provinces(): HasMany
     {
-        return $this->hasMany(Province::class);
+        return $this->hasMany(Province::class, ThaiAddresses::getProvinceForeignKeyName());
     }
 }

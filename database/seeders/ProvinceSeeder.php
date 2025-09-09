@@ -4,8 +4,8 @@ namespace Soap\ThaiAddresses\Database\Seeders;
 
 use File;
 use Illuminate\Database\Seeder;
-use Soap\ThaiAddresses\Facades\ThaiAddresses;
 use Soap\ThaiAddresses\Models\Province;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 class ProvinceSeeder extends Seeder
 {
