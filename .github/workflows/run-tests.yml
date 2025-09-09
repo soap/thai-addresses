@@ -85,15 +85,6 @@ jobs:
         run: |
           mysql -h 127.0.0.1 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS thai_addresses_package_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
           mysql -h 127.0.0.1 -uroot -proot -e "SHOW DATABASES;"
-
-      - name: Run migrations
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: thai_addresses_package_test
-          DB_USERNAME: root
-          DB_PASSWORD: root
         
       - name: Execute tests
         env:
