@@ -38,7 +38,7 @@ class TestCase extends Orchestra
 
     protected function loadEnvironmentVariables(): void
     {
-        // ลองโหลด .env.testing ก่อน
+        // Try loading .env.testing first
         foreach (['.env.testing', '.env'] as $file) {
             $path = __DIR__."/../{$file}";
             if (file_exists($path)) {
