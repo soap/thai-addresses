@@ -49,6 +49,11 @@ trait HasAddress
         return $this->morphMany(config('thai-addresses.address.model'), 'addressable', 'addressable_type', 'addressable_id');
     }
 
+    public function addAddress(array $attributes): \Illuminate\Database\Eloquent\Model
+    {
+        return $this->addresses()->create($attributes);
+    }
+
     /**
      * Find addressables by distance.
      */

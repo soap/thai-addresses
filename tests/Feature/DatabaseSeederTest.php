@@ -5,11 +5,8 @@ use Soap\ThaiAddresses\Models\Geography;
 use Soap\ThaiAddresses\Models\Province;
 use Soap\ThaiAddresses\Models\Subdistrict;
 
-beforeEach(function () {
-    $this->artisan('thai-addresses:db-seed');
-});
-
 test('seeder commands are working', function () {
+    // seeder was done in TestCase.php
     $regions = Geography::all();
     expect($regions)->toHaveCount(6, '6 regions exists');
 

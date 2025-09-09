@@ -5,11 +5,15 @@ namespace Soap\ThaiAddresses\Database\Seeders;
 use File;
 use Illuminate\Database\Seeder;
 use Soap\ThaiAddresses\Models\Subdistrict;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 class SubdistrictSeeder extends Seeder
 {
     public function run()
     {
+        if (! \Schema::hasTable((new Subdistrict)->getTable())) {
+            throw new \Exception('Subdistrict table does not exist.');
+        }
         Subdistrict::query()->delete();
         if (File::exists(base_path('/vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'))) {
             $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/subdistricts.json'));
@@ -25,7 +29,7 @@ class SubdistrictSeeder extends Seeder
                 'zip_code' => $item->zip_code,
                 'name_th' => $item->name_th,
                 'name_en' => $item->name_en,
-                config('thai-addresses.district.foreign_key') => $item->district_id,
+                ThaiAddresses::getDistrictForeignKeyName() => $item->district_id,
             ]);
         }
     }

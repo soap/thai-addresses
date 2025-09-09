@@ -4,76 +4,127 @@ namespace Soap\ThaiAddresses;
 
 class ThaiAddresses
 {
-    protected $config;
-
-    public function __construct()
+    public static function getSubdistrictTableName(): string
     {
-        $this->config = config('thai-addresses');
+        // ตรวจสอบว่า config ถูกโหลดหรือไม่
+        if (! function_exists('config') || ! config()) {
+            return 'thai_subdistricts'; // default fallback
+        }
+
+        $tableName = config('thai-addresses.subdistrict.table_name');
+
+        // Return default if config is null
+        return $tableName ?? 'thai_subdistricts';
+    }
+
+    public static function getDistrictTableName(): string
+    {
+        if (! function_exists('config') || ! config()) {
+            return 'thai_districts';
+        }
+
+        $tableName = config('thai-addresses.district.table_name');
+
+        return $tableName ?? 'thai_districts';
+    }
+
+    public static function getProvinceTableName(): string
+    {
+        if (! function_exists('config') || ! config()) {
+            return 'thai_provinces';
+        }
+
+        $tableName = config('thai-addresses.province.table_name');
+
+        return $tableName ?? 'thai_provinces';
+    }
+
+    public static function getGeographyTableName(): string
+    {
+        if (! function_exists('config') || ! config()) {
+            return 'thai_geographies';
+        }
+
+        $tableName = config('thai-addresses.geography.table_name');
+
+        return $tableName ?? 'thai_geographies';
+    }
+
+    public static function getAddressTableName(): string
+    {
+        if (! function_exists('config') || ! config()) {
+            return 'addresses';
+        }
+
+        $tableName = config('thai-addresses.address.table_name');
+
+        return $tableName ?? 'addresses';
     }
 
     /**
-     * Get geograpy table name (ตารางสำหรับข้อมูลภาค)
+     * Get geography foreign key name (อ้างอิงจากตารางจังหวัด)
      */
-    public function getGeographyTableName(): string
+    public static function getGeographyForeignKeyName(): string
     {
-        return $this->config['geography']['table_name'];
-    }
+        if (! function_exists('config') || ! config()) {
+            return 'geography_id';
+        }
+        $key = config('thai-addresses.geography.foreign_key');
 
-    /**
-     * Get province table name (ตารางสำหรับข้อมูลจังหวัด)
-     */
-    public function getProvinceTableName(): string
-    {
-        return $this->config['province']['table_name'];
-    }
-
-    /**
-     * Get district table name (ตารางสำหรับข้อมูลอำเภอ)
-     */
-    public function getDistrictTableName(): string
-    {
-        return $this->config['district']['table_name'];
-    }
-
-    /**
-     * Get subdistrict table name (ตารางสำหรับข้อมูลตำบล/เทศบาล)
-     */
-    public function getSubdistrictTableName(): string
-    {
-        return $this->config['subdistrict']['table_name'];
-    }
-
-    public function getAddressTableName(): string
-    {
-        return $this->config['address']['table_name'];
-    }
-
-    /**
-     * Get geograpy foreign key name (อ้างอิงจากตารางจังหวัด)
-     */
-    public function getGeographyForeignKeyName(): string
-    {
-        return $this->config['geography']['foreign_key'];
+        return $key ?? 'geography_id';
     }
 
     /**
      * Get province foreign key name (อ้างอิงโดยตารางอำเภอ)
      */
-    public function getProvinceForeignKeyName(): string
+    public static function getProvinceForeignKeyName(): string
     {
-        return $this->config['province']['foreign_key'];
+        if (! function_exists('config') || ! config()) {
+            return 'province_id';
+        }
+        $key = config('thai-addresses.province.foreign_key');
+
+        return $key ?? 'province_id';
     }
 
     /**
      * Get district foreign key name (อ้างอิงโดยตารางภาค)
      */
-    public function getDistrictForeignKeyName(): string
+    public static function getDistrictForeignKeyName(): string
     {
-        return $this->config['district']['foreign_key'];
+        if (! function_exists('config') || ! config()) {
+            return 'district_id';
+        }
+        $key = config('thai-addresses.district.foreign_key');
+
+        return $key ?? 'district_id';
     }
 
-    public function lastUpdated()
+    /**
+     * Get district foreign key name (อ้างอิงโดยตารางภาค)
+     */
+    public static function getSubdistrictForeignKeyName(): string
     {
-        return '2024-11-01';
+        if (! function_exists('config') || ! config()) {
+            return 'subdistrict_id';
+        }
+        $key = config('thai-addresses.subdistrict.foreign_key');
+
+        return $key ?? 'subdistrict_id';
+    }
+
+    public static function getAddressForeignKeyName(): string
+    {
+        if (! function_exists('config') || ! config()) {
+            return 'address_id';
+        }
+        $key = config('thai-addresses.address.foreign_key');
+
+        return $key ?? 'address_id';
+    }
+
+    public static function lastUpdated()
+    {
+        return '2025-09-09';
     }
 }

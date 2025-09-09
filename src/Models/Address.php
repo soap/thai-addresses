@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Soap\ThaiAddresses\Facades\ThaiAddresses;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 class Address extends Model
 {
@@ -48,7 +48,7 @@ class Address extends Model
         'deleted_at' => 'datetime',
     ];
 
-    public function getTable()
+    public function getTable(): string
     {
         return ThaiAddresses::getAddressTableName();
     }
@@ -63,7 +63,7 @@ class Address extends Model
 
     public function subdistrict(): BelongsTo
     {
-        return $this->belongsTo(Subdistrict::class);
+        return $this->belongsTo(Subdistrict::class, ThaiAddresses::getSubdistrictForeignKeyName());
     }
 
     /**

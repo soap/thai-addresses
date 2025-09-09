@@ -10,6 +10,9 @@ class GeographySeeder extends Seeder
 {
     public function run()
     {
+        if (! \Schema::hasTable((new Geography)->getTable())) {
+            throw new \Exception('Geography table does not exist.');
+        }
         Geography::query()->delete();
         if (File::exists(base_path('/vendor/soap/thai-addresses/database/seeders/data/geographies.json'))) {
             $json = File::get(base_path('/vendor/soap/thai-addresses/database/seeders/data/geographies.json'));

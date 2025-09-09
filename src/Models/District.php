@@ -5,7 +5,7 @@ namespace Soap\ThaiAddresses\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Soap\ThaiAddresses\Facades\ThaiAddresses;
+use Soap\ThaiAddresses\ThaiAddresses;
 
 class District extends Model
 {
@@ -15,18 +15,18 @@ class District extends Model
         'code',
     ];
 
-    public function getTable()
+    public function getTable(): string
     {
         return ThaiAddresses::getDistrictTableName();
     }
 
     public function province(): BelongsTo
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class, ThaiAddresses::getProvinceForeignKeyName());
     }
 
     public function subdistricts(): HasMany
     {
-        return $this->hasMany(Subdistrict::class);
+        return $this->hasMany(Subdistrict::class, ThaiAddresses::getSubdistrictForeignKeyName());
     }
 }
