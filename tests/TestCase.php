@@ -131,10 +131,20 @@ class TestCase extends Orchestra
         });
     }
 
+    /**
+     * Hook หลังจาก refresh database เสร็จ
+     */
+    protected function afterRefreshingDatabase()
+    {
+        $this->artisan('thai-addresses:db-seed');
+    }
+
     protected function defineDatabaseMigrations(): void
     {
+        // migrations ของ package
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        // migrations ของ workbench (เช่น users table)
         $this->loadMigrationsFrom(workbench_path('database/migrations'));
     }
 }
