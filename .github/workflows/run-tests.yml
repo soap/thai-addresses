@@ -2,12 +2,12 @@ name: run-tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
     paths-ignore:
       - "**.md"
       - "docs/**"
   pull_request:
-    branches: [main]
+    branches: [main, develop]
     paths-ignore:
       - "**.md"
       - "docs/**"
@@ -94,8 +94,7 @@ jobs:
           DB_DATABASE: thai_addresses_package_test
           DB_USERNAME: root
           DB_PASSWORD: root
-        run: php artisan migrate --force
-
+        
       - name: Execute tests
         env:
           DB_CONNECTION: mysql
