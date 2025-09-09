@@ -4,7 +4,6 @@ namespace Soap\ThaiAddresses\Tests;
 
 use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\Concerns\WithWorkbench;
@@ -17,12 +16,11 @@ use Soap\ThaiAddresses\ThaiAddressesServiceProvider;
 
 class TestCase extends Orchestra
 {
-    use RefreshDatabase; // เปลี่ยนจาก DatabaseMigrations
+    use RefreshDatabase;
     use WithWorkbench;
 
     protected function setUp(): void
     {
-        // Force load environment variables
         $this->loadEnvironmentVariables();
 
         parent::setUp();
@@ -38,32 +36,26 @@ class TestCase extends Orchestra
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
-    protected function loadEnvironmentVariables()
+    protected function loadEnvironmentVariables(): void
     {
         // ลองโหลด .env.testing ก่อน
-        $envTestingPath = __DIR__.'/../.env.testing';
-        if (file_exists($envTestingPath)) {
-            $this->loadEnvFile($envTestingPath);
+        foreach (['.env.testing', '.env'] as $file) {
+            $path = __DIR__."/../{$file}";
+            if (file_exists($path)) {
+                $this->loadEnvFile($path);
+            }
         }
 
-        // ถ้าไม่มี ลองโหลด .env
-        $envPath = __DIR__.'/../.env';
-        if (file_exists($envPath)) {
-            $this->loadEnvFile($envPath);
-        }
-
-        // Set default values หาก environment variables ไม่มี
         $this->setDefaultEnvironmentVariables();
     }
 
-    protected function loadEnvFile($path)
+    protected function loadEnvFile(string $path): void
     {
         $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
             if (strpos(trim($line), '#') === 0) {
-                continue; // Skip comments
+                continue;
             }
-
             if (strpos($line, '=') !== false) {
                 [$key, $value] = explode('=', $line, 2);
                 $key = trim($key);
@@ -76,7 +68,7 @@ class TestCase extends Orchestra
         }
     }
 
-    protected function setDefaultEnvironmentVariables()
+    protected function setDefaultEnvironmentVariables(): void
     {
         $defaults = [
             'APP_ENV' => 'testing',
@@ -85,7 +77,7 @@ class TestCase extends Orchestra
             'DB_PORT' => '3306',
             'DB_DATABASE' => 'thai_addresses_package_test',
             'DB_USERNAME' => 'root',
-            'DB_PASSWORD' => '', // Default empty password for local
+            'DB_PASSWORD' => '', // local default (GitHub Actions จะ override)
         ];
 
         foreach ($defaults as $key => $value) {
@@ -97,47 +89,49 @@ class TestCase extends Orchestra
         }
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             ThaiAddressesServiceProvider::class,
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         tap($app['config'], function (Repository $config) {
             $config->set('auth.providers.users.model', User::class);
 
-            // ใช้ MySQL เสมอ
-            $config->set('database.default', 'mysql');
+            $connection = $_ENV['DB_CONNECTION'] ?? 'mysql';
+            $config->set('database.default', $connection);
 
-            $config->set('database.connections.mysql', [
-                'driver' => 'mysql',
-                'host' => $_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '127.0.0.1',
-                'port' => $_ENV['DB_PORT'] ?? $_SERVER['DB_PORT'] ?? '3306',
-                'database' => $_ENV['DB_DATABASE'] ?? $_SERVER['DB_DATABASE'] ?? 'thai_addresses_package_test',
-                'username' => $_ENV['DB_USERNAME'] ?? $_SERVER['DB_USERNAME'] ?? 'root',
-                'password' => $_ENV['DB_PASSWORD'] ?? $_SERVER['DB_PASSWORD'] ?? '',
-                'charset' => 'utf8mb4',
-                'collation' => 'utf8mb4_unicode_ci',
-                'prefix' => '',
-                'strict' => false,
-                'engine' => null,
-            ]);
+            if ($connection === 'mysql') {
+                $config->set('database.connections.mysql', [
+                    'driver' => 'mysql',
+                    'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
+                    'port' => $_ENV['DB_PORT'] ?? '3306',
+                    'database' => $_ENV['DB_DATABASE'] ?? 'thai_addresses_package_test',
+                    'username' => $_ENV['DB_USERNAME'] ?? 'root',
+                    'password' => $_ENV['DB_PASSWORD'] ?? '',
+                    'charset' => 'utf8mb4',
+                    'collation' => 'utf8mb4_unicode_ci',
+                    'prefix' => '',
+                    'strict' => false,
+                    'engine' => null,
+                ]);
+            }
 
-            // Debug output
-            if (app()->environment('testing')) {
-                echo '=== MySQL Configuration ==='.PHP_EOL;
-                echo 'Host: '.$config->get('database.connections.mysql.host').PHP_EOL;
-                echo 'Database: '.$config->get('database.connections.mysql.database').PHP_EOL;
-                echo 'Username: '.$config->get('database.connections.mysql.username').PHP_EOL;
-                echo 'Password: '.($config->get('database.connections.mysql.password') ? '[SET]' : '[EMPTY]').PHP_EOL;
+            if ($connection === 'sqlite') {
+                $config->set('database.connections.sqlite', [
+                    'driver' => 'sqlite',
+                    'database' => $_ENV['DB_DATABASE'] ?? ':memory:',
+                    'prefix' => '',
+                    'foreign_key_constraints' => true,
+                ]);
             }
         });
     }
 
-    protected function defineDatabaseMigrations()
+    protected function defineDatabaseMigrations(): void
     {
         $this->loadMigrationsFrom(workbench_path('database/migrations'));
     }
