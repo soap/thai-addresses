@@ -7,7 +7,7 @@ use Workbench\App\Models\User;
 test('user can have address', function () {
     $user = User::factory()->create();
     $subdistrict = Subdistrict::where('name_th', '=', 'กระบี่ใหญ่')->first();
-    $address = new Address();
+    $address = new Address;
     $address->fill([
         'label' => 'Default Address',
         'given_name' => 'Prasit',
