@@ -77,7 +77,7 @@ class TestCase extends Orchestra
             'DB_PORT' => '3306',
             'DB_DATABASE' => 'thai_addresses_package_test',
             'DB_USERNAME' => 'root',
-            'DB_PASSWORD' => '', // local default (GitHub Actions จะ override)
+            'DB_PASSWORD' => '', // local default (GitHub Actions will override)
         ];
 
         foreach ($defaults as $key => $value) {
