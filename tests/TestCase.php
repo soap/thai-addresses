@@ -132,7 +132,7 @@ class TestCase extends Orchestra
     }
 
     /**
-     * Hook หลังจาก refresh database เสร็จ
+     * Hook after database refresh is complete
      */
     protected function afterRefreshingDatabase()
     {
